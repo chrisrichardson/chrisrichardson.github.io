@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2016-12-05 12:47:52 +0000">
+    <meta http-equiv="last-modified" content="2016-12-05 13:05:52 +0000">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -229,7 +229,7 @@ This line added to Wolfman's copy
 </code></pre>
 </div>
 
-<p>and then push the change to GitHub:</p>
+<p>and then push the change to bitbucket:</p>
 
 <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add mars.txt
 $ git commit -m "Adding a line in our home copy"
@@ -250,14 +250,14 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 352 bytes, done.
 Total 3 (delta 1), reused 0 (delta 0)
-To https://github.com/vlad/planets
+To https://bitbucket.org/vlad/planets
    29aba7c..dabb4c8  master -&gt; master
 </code></pre>
 </div>
 
 <p>Now let’s have the other partner
 make a different change to their copy
-<em>without</em> updating from GitHub:</p>
+<em>without</em> updating from bitbucket:</p>
 
 <div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano mars.txt
 $ cat mars.txt
@@ -283,15 +283,15 @@ $ git commit -m "Adding a line in my copy"
 </code></pre>
 </div>
 
-<p>but Git won’t let us push it to GitHub:</p>
+<p>but git won’t let us push it to bitbucket:</p>
 
 <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git push origin master
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>To https://github.com/vlad/planets.git
+<div class="output highlighter-rouge"><pre class="highlight"><code>To https://bitbucket.org/vlad/planets.git
  ! [rejected]        master -&gt; master (non-fast-forward)
-error: failed to push some refs to 'https://github.com/vlad/planets.git'
+error: failed to push some refs to 'https://bitbucket.org/vlad/planets.git'
 hint: Updates were rejected because the tip of your current branch is behind
 hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
 hint: before pushing again.
@@ -303,7 +303,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 <p>Git detects that the changes made in one copy overlap with those made in the other
 and stops us from trampling on our previous work.
-What we have to do is pull the changes from GitHub,
+What we have to do is pull the changes from bitbucket,
 <a href="../reference/#merge">merge</a> them into the copy we’re currently working in,
 and then push that.
 Let’s start by pulling:</p>
@@ -316,7 +316,7 @@ Let’s start by pulling:</p>
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 1), reused 3 (delta 1)
 Unpacking objects: 100% (3/3), done.
-From https://github.com/vlad/planets
+From https://bitbucket.org/vlad/planets
  * branch            master     -&gt; FETCH_HEAD
 Auto-merging mars.txt
 CONFLICT (content): Merge conflict in mars.txt
@@ -344,7 +344,7 @@ This line added to Wolfman's copy
 
 <p>Our change—the one in <code class="highlighter-rouge">HEAD</code>—is preceded by <code class="highlighter-rouge">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>.
 Git has then inserted <code class="highlighter-rouge">=======</code> as a separator between the conflicting changes
-and marked the end of the content downloaded from GitHub with <code class="highlighter-rouge">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.
+and marked the end of the content downloaded from bitbucket with <code class="highlighter-rouge">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.
 (The string of letters and digits after that marker
 identifies the commit we’ve just downloaded.)</p>
 
@@ -386,15 +386,15 @@ Changes to be committed:
 </code></pre>
 </div>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git commit -m "Merging changes from GitHub"
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git commit -m "Merging changes from bitbucket"
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>[master 2abf2b1] Merging changes from GitHub
+<div class="output highlighter-rouge"><pre class="highlight"><code>[master 2abf2b1] Merging changes from bitbucket
 </code></pre>
 </div>
 
-<p>Now we can push our changes to GitHub:</p>
+<p>Now we can push our changes to bitbucket:</p>
 
 <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git push origin master
 </code></pre>
@@ -405,7 +405,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (6/6), done.
 Writing objects: 100% (6/6), 697 bytes, done.
 Total 6 (delta 2), reused 0 (delta 0)
-To https://github.com/vlad/planets.git
+To https://bitbucket.org/vlad/planets.git
    dabb4c8..2abf2b1  master -&gt; master
 </code></pre>
 </div>
@@ -422,7 +422,7 @@ when the collaborator who made the first change pulls again:</p>
 remote: Compressing objects: 100% (4/4), done.
 remote: Total 6 (delta 2), reused 6 (delta 2)
 Unpacking objects: 100% (6/6), done.
-From https://github.com/vlad/planets
+From https://bitbucket.org/vlad/planets
  * branch            master     -&gt; FETCH_HEAD
 Updating dabb4c8..2abf2b1
 Fast-forward
