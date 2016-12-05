@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2016-11-30 10:41:16 +0000">
+    <meta http-equiv="last-modified" content="2016-12-05 12:47:52 +0000">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -88,6 +88,8 @@
             <li><a href="../13-hosting/">Hosting</a></li>
             
             <li><a href="../14-forking/">Forking</a></li>
+            
+            <li><a href="../16-summary/">Summary</a></li>
             
           </ul>
         </li>
@@ -207,13 +209,10 @@ won’t need to give anyone access on bitbucket, because both ‘partners’ are
 <p>The Owner needs to give the Collaborator access. On Bitbucket, click
 the settings (gear) button on the left, then select “User and group
 access”, and enter your partner’s username or email, and give them
-“Write access”. Click Add.</p>
+“Write access”. Click Add. The Collaborator should receive an email
+notifying them they have access.</p>
 
 <p><img src="../fig/bitbucket-add-user.png" alt="Adding Collaborators on Bitbucket" /></p>
-
-<h1 id="fixme">FIXME</h1>
-<p>To accept access to the Owner’s repo, the Collaborator
-needs to go to <a href="https://github.com/notifications">https://github.com/notifications</a>. Once there, you can accept access to the Owner’s repo.</p>
 
 <p>Next, the Collaborator needs to download a copy of the Owner’s
 repository to their  machine. This is called “cloning a repo”. To
@@ -223,12 +222,15 @@ clone the Owner’s repo into their <code class="highlighter-rouge">Desktop</cod
 </code></pre>
 </div>
 
-<p>Replace ‘vlad’ with the Owner’s username.</p>
+<p>Replace ‘vlad’ with the Owner’s username. Note that we have specified
+the folder name as <code class="highlighter-rouge">~/Desktop/vlad-planets</code> instead of accepting the
+default of <code class="highlighter-rouge">planets</code>. This can be useful to <code class="highlighter-rouge">git clone</code> repositories to
+folders of your choice.</p>
 
 <p><img src="../fig/github-collaboration.svg" alt="After Creating Clone of Repository" /></p>
 
-<p>As Collaborator, you can now make a change in your clone of the Owner’s repository,
-in exactly the same way as we’ve been doing before:</p>
+<p>As Collaborator, you can now make a change in your clone of the
+Owner’s repository, in exactly the same way as we’ve been doing before:</p>
 
 <div class="bash highlighter-rouge"><pre class="highlight"><code>$ cd ~/Desktop/vlad-planets
 $ gedit pluto.txt
@@ -342,7 +344,6 @@ over a line of code, a small “+” sign appears on the left, and
 allows you to make a comment, which will be emailed to the contributor.</p>
 
 </blockquote>
-
 
 <blockquote class="keypoints">
   <h2>Key Points</h2>

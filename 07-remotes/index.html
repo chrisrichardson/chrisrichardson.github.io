@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2016-11-30 10:41:16 +0000">
+    <meta http-equiv="last-modified" content="2016-12-05 12:47:52 +0000">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -88,6 +88,8 @@
             <li><a href="../13-hosting/">Hosting</a></li>
             
             <li><a href="../14-forking/">Forking</a></li>
+            
+            <li><a href="../16-summary/">Summary</a></li>
             
           </ul>
         </li>
@@ -220,8 +222,11 @@ $ git init
 </div>
 
 <p>Our local repository still contains our earlier work on <code class="highlighter-rouge">mars.txt</code>, but the
-remote repository on bitbucket doesn’t contain any files yet.
-The next step is to connect the two repositories.  We do this by making the
+remote repository on bitbucket doesn’t contain any files yet.</p>
+
+<p><img src="../fig/git-freshly-made-bitbucket-repo.png" alt="New Repository" /></p>
+
+<p>The next step is to connect the two repositories.  We do this by making the
 bitbucket repository a <a href="../reference/#remote">remote</a> for the local repository.</p>
 
 <p>As soon as the repository is created, bitbucket displays a page with a
@@ -315,7 +320,7 @@ to make git default to using the terminal for usernames and passwords.</p>
 
 <p>Our local and remote repositories are now in this state:</p>
 
-<p><img src="../fig/github-repo-after-first-push.svg" alt="bitbucket Repository After First Push" /></p>
+<p><img src="../fig/github-repo-after-first-push.png" alt="bitbucket Repository After First Push" /></p>
 
 <p>We can pull changes from the remote repository to the local one as well:</p>
 
