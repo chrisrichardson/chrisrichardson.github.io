@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2017-12-07 13:26:39 +0000">
+    <meta http-equiv="last-modified" content="2017-12-07 13:46:24 +0000">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="./assets/css/lesson.css" />
-
+    
     <link rel="shortcut icon" type="image/x-icon" href="/favicon-swc.ico" />
-
-
+    
+    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -34,86 +34,86 @@
         <span class="icon-bar"></span>
       </button>
 
-
-
+      
+      
       <a href="https://software-carpentry.org" class="pull-left">
         <img class="navbar-logo" src="./assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
       </a>
+      
 
-
-
+      
       <a class="navbar-brand" href="./">Home</a>
 
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
 
-
+	
         <li><a href="./conduct/">Code of Conduct</a></li>
 
-
-
+	
+        
         <li><a href="./setup/">Setup</a></li>
         <li><a href="./reference/">Reference</a></li>
         <li class="dropdown">
           <a href="./" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
           <ul class="dropdown-menu">
-
+            
             <li><a href="./00-local/">Local Setup</a></li>
-
+            
             <li><a href="./01-basics/">Automated Version Control</a></li>
-
+            
             <li><a href="./02-setup/">Setting Up Git</a></li>
-
+            
             <li><a href="./03-create/">Creating a Repository</a></li>
-
+            
             <li><a href="./04-changes/">Tracking Changes</a></li>
-
+            
             <li><a href="./05-history/">Exploring History</a></li>
-
+            
             <li><a href="./06-ignore/">Ignoring Things</a></li>
-
+            
             <li><a href="./07-remotes/">Remotes</a></li>
-
+            
             <li><a href="./08-collab/">Collaborating</a></li>
-
+            
             <li><a href="./09-conflict/">Conflicts</a></li>
-
+            
             <li><a href="./10-open/">Open Science</a></li>
-
+            
             <li><a href="./11-licensing/">Licensing</a></li>
-
+            
             <li><a href="./12-citation/">Citation</a></li>
-
+            
             <li><a href="./13-hosting/">Hosting</a></li>
-
+            
             <li><a href="./14-forking/">Forking</a></li>
-
+            
             <li><a href="./16-summary/">Summary</a></li>
-
+            
           </ul>
         </li>
+	
 
-
-
-
+	
+	
         <li class="dropdown">
           <a href="./" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
           <ul class="dropdown-menu">
-
+            
             <li><a href="./about/">About</a></li>
-
+            
             <li><a href="./discuss/">Discussion</a></li>
-
+            
             <li><a href="./figures/">Figures</a></li>
-
+            
             <li><a href="./guide/">Instructor Notes</a></li>
-
+            
           </ul>
         </li>
+	
 
-
-
+	
         <li><a href="./license/">License</a></li>
       </ul>
       <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
@@ -126,6 +126,8 @@
 </nav>
 
 <h1 class="maintitle"><a href="./">Version Control with Git</a></h1>
+
+<p>Version control is better than mailing files back and forth:</p>
 
 <ul>
   <li>
@@ -171,445 +173,444 @@ Some previous experience with the shell is expected,
 </blockquote>
 
 
-
 <div class="syllabus">
   <h2 id="schedule">Schedule</h2>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
 
   <table class="table table-striped">
-
-
-
-
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">00:00</td>
       <td class="col-md-3">
         <a href="./00-local/">Local Setup</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               How do I get started?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">00:05</td>
       <td class="col-md-3">
         <a href="./01-basics/">Automated Version Control</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               What is version control and why should I use it?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">00:10</td>
       <td class="col-md-3">
         <a href="./02-setup/">Setting Up Git</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               How do I get set up to use Git?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">00:15</td>
       <td class="col-md-3">
         <a href="./03-create/">Creating a Repository</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               Where does Git store information?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">00:25</td>
       <td class="col-md-3">
         <a href="./04-changes/">Tracking Changes</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               How do I record changes in Git?
 
-
+              
               <br/>
-
-
+              
+            
               How do I check the status of my version control repository?
 
-
+              
               <br/>
-
-
+              
+            
               How do I record notes about what changes I made and why?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">00:45</td>
       <td class="col-md-3">
         <a href="./05-history/">Exploring History</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               How can I identify old versions of files?
 
-
+              
               <br/>
-
-
+              
+            
               How do I review my changes?
 
-
+              
               <br/>
-
-
+              
+            
               How can I recover old versions of files?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">01:10</td>
       <td class="col-md-3">
         <a href="./06-ignore/">Ignoring Things</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               How can I tell Git to ignore files I don’t want to track?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">01:15</td>
       <td class="col-md-3">
         <a href="./07-remotes/">Remotes</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               How do I share my changes with others on the web?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">01:45</td>
       <td class="col-md-3">
         <a href="./08-collab/">Collaborating</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               How can I use version control to collaborate with other people?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">02:10</td>
       <td class="col-md-3">
         <a href="./09-conflict/">Conflicts</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               What do I do when my changes conflict with someone else’s?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">02:25</td>
       <td class="col-md-3">
         <a href="./10-open/">Open Science</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               How can version control help me make my work more open?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">02:35</td>
       <td class="col-md-3">
         <a href="./11-licensing/">Licensing</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               What licensing information should I include with my work?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">02:40</td>
       <td class="col-md-3">
         <a href="./12-citation/">Citation</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               How can I make my work easier to cite?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">02:42</td>
       <td class="col-md-3">
         <a href="./13-hosting/">Hosting</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               Where should I host my version control repositories?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">02:52</td>
       <td class="col-md-3">
         <a href="./14-forking/">Forking</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               How can I make changes to a repo I don’t have write access to?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
-
+    
+  
+    
+    
+    
     <tr>
-
+      
       <td class="col-md-1">03:17</td>
       <td class="col-md-3">
         <a href="./16-summary/">Summary</a>
       </td>
       <td class="col-md-7">
-
-
-
+        
+          
+            
               How can I remember all this stuff?
 
-
-
-
-
+              
+            
+          
+        
       </td>
     </tr>
-
-
-
-
+    
+  
+  
+  
   <tr>
-
+    
     <td class="col-md-1">03:27</td>
     <td class="col-md-3">Finish</td>
     <td class="col-md-7"></td>
@@ -623,14 +624,14 @@ Some previous experience with the shell is expected,
 </div>
 
 
-
+      
       <footer>
   <div class="row">
     <div class="col-md-6" align="left">
       <h4>
 	Copyright &copy; 2016
 	<a href="https://software-carpentry.org">Software Carpentry Foundation</a>
-
+	
       </h4>
     </div>
     <div class="col-md-6" align="right">
@@ -645,7 +646,7 @@ Some previous experience with the shell is expected,
   </div>
 </footer>
 
-
+      
     </div>
     <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/js/bootstrap.min.js"></script>
