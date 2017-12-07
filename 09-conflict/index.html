@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2016-12-08 11:49:38 +0000">
+    <meta http-equiv="last-modified" content="2017-12-07 13:26:39 +0000">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -202,36 +202,40 @@ by giving us tools to <a href="../reference/#resolve">resolve</a>
 overlapping changes.</p>
 
 <p>To see how we can resolve conflicts, we must first create one.  The file
-<code class="highlighter-rouge">mars.txt</code> currently looks like this in both partners’ copies of our <code class="highlighter-rouge">planets</code>
+<code class="highlighter-rouge">margherita.md</code> currently looks like this in both partners’ copies of our <code class="highlighter-rouge">cocktails</code>
 repository:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cat mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cat margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
+<div class="output highlighter-rouge"><pre class="highlight"><code># Margherita
+## Ingredients
+1. Tequila
+2. Triple Sec
+3. Lime Juice
 </code></pre>
 </div>
 
 <p>Let’s add a line to one partner’s copy only:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano mars.txt
-$ cat mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano margherita.md
+$ cat margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
-This line added to Wolfman's copy
+<div class="output highlighter-rouge"><pre class="highlight"><code># Margherita
+## Ingredients
+1. Tequila
+2. Triple Sec
+3. Lime Juice
+4. Ice
 </code></pre>
 </div>
 
 <p>and then push the change to bitbucket:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add margherita.md
 $ git commit -m "Adding a line in our home copy"
 </code></pre>
 </div>
@@ -250,7 +254,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 352 bytes, done.
 Total 3 (delta 1), reused 0 (delta 0)
-To https://bitbucket.org/vlad/planets
+To https://bitbucket.org/vlad/cocktails
    29aba7c..dabb4c8  master -&gt; master
 </code></pre>
 </div>
@@ -259,21 +263,23 @@ To https://bitbucket.org/vlad/planets
 make a different change to their copy
 <em>without</em> updating from bitbucket:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano mars.txt
-$ cat mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano margherita
+$ cat margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
-We added a different line in the other copy
+<div class="output highlighter-rouge"><pre class="highlight"><code># Margherita
+## Ingredients
+1. Tequila
+2. Triple Sec
+3. Lime Juice
+4. Water
 </code></pre>
 </div>
 
 <p>We can commit the change locally:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add margherita.md
 $ git commit -m "Adding a line in my copy"
 </code></pre>
 </div>
@@ -289,9 +295,9 @@ $ git commit -m "Adding a line in my copy"
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>To https://bitbucket.org/vlad/planets.git
+<div class="output highlighter-rouge"><pre class="highlight"><code>To https://bitbucket.org/vlad/cocktails.git
  ! [rejected]        master -&gt; master (non-fast-forward)
-error: failed to push some refs to 'https://bitbucket.org/vlad/planets.git'
+error: failed to push some refs to 'https://bitbucket.org/vlad/cocktails.git'
 hint: Updates were rejected because the tip of your current branch is behind
 hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
 hint: before pushing again.
@@ -316,10 +322,10 @@ Let’s start by pulling:</p>
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 1), reused 3 (delta 1)
 Unpacking objects: 100% (3/3), done.
-From https://bitbucket.org/vlad/planets
+From https://bitbucket.org/vlad/cocktails
  * branch            master     -&gt; FETCH_HEAD
-Auto-merging mars.txt
-CONFLICT (content): Merge conflict in mars.txt
+Auto-merging margherita.md
+CONFLICT (content): Merge conflict in margherita.md
 Automatic merge failed; fix conflicts and then commit the result.
 </code></pre>
 </div>
@@ -327,17 +333,19 @@ Automatic merge failed; fix conflicts and then commit the result.
 <p><code class="highlighter-rouge">git pull</code> tells us there’s a conflict,
 and marks that conflict in the affected file:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cat mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cat margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
+<div class="output highlighter-rouge"><pre class="highlight"><code># Margherita
+## Ingredients
+1. Tequila
+2. Triple Sec
+3. Lime Juice
 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-We added a different line in the other copy
+4. Water
 =======
-This line added to Wolfman's copy
+4. Ice
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d
 </code></pre>
 </div>
@@ -355,22 +363,24 @@ the change made in the remote repository, write something new to replace both,
 or get rid of the change entirely.
 Let’s replace both so that the file looks like this:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cat mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cat margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
-We removed the conflict on this line
+<div class="output highlighter-rouge"><pre class="highlight"><code># Margherita
+## Ingredients
+1. Tequila
+2. Triple Sec
+3. Lime Juice
+4. Crushed Ice
 </code></pre>
 </div>
 
 <p>To finish merging,
-we add <code class="highlighter-rouge">mars.txt</code> to the changes being made by the merge
+we add <code class="highlighter-rouge">margherita.md</code> to the changes being made by the merge
 and then commit:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add margherita.md
 $ git status
 </code></pre>
 </div>
@@ -381,7 +391,7 @@ All conflicts fixed but you are still merging.
 
 Changes to be committed:
 
-	modified:   mars.txt
+	modified:   margherita.md
 
 </code></pre>
 </div>
@@ -405,7 +415,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (6/6), done.
 Writing objects: 100% (6/6), 697 bytes, done.
 Total 6 (delta 2), reused 0 (delta 0)
-To https://bitbucket.org/vlad/planets.git
+To https://bitbucket.org/vlad/cocktails.git
    dabb4c8..2abf2b1  master -&gt; master
 </code></pre>
 </div>
@@ -422,25 +432,27 @@ when the collaborator who made the first change pulls again:</p>
 remote: Compressing objects: 100% (4/4), done.
 remote: Total 6 (delta 2), reused 6 (delta 2)
 Unpacking objects: 100% (6/6), done.
-From https://bitbucket.org/vlad/planets
+From https://bitbucket.org/vlad/cocktails
  * branch            master     -&gt; FETCH_HEAD
 Updating dabb4c8..2abf2b1
 Fast-forward
- mars.txt | 2 +-
+ margherita.md | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 </code></pre>
 </div>
 
 <p>We get the merged file:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cat mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cat margerita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
-We removed the conflict on this line
+<div class="output highlighter-rouge"><pre class="highlight"><code># Margherita
+## Ingredients
+1. Tequila
+2. Triple Sec
+3. Lime Juice
+4. Crushed Ice
 </code></pre>
 </div>
 

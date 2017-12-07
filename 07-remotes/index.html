@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2016-12-08 11:49:38 +0000">
+    <meta http-equiv="last-modified" content="2017-12-07 13:26:39 +0000">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -203,25 +203,26 @@ services like <a href="http://github.com">GitHub</a>, <a href="http://bitbucket.
 <a href="http://gitlab.com/">GitLab</a> to hold those master copies; we’ll explore the pros and cons of this in the final section of this lesson.</p>
 
 <p>Let’s start by sharing the changes we’ve made to our current project
-with the world. Create an account on <a href="https://bitbucket.org">bitbucket.org</a>. Bitbucket have an academic programme, which
-allows you to have unlimited private repositories (unlike some other
-websites). If you use an <code class="highlighter-rouge">.ac.uk</code> email address to sign up, you will
-automatically get this feature.</p>
+with the world. Create an account on
+<a href="https://bitbucket.org">bitbucket.org</a>. Bitbucket have an academic
+programme, which allows you to have unlimited private repositories. If
+you use an <code class="highlighter-rouge">.ac.uk</code> email address to sign up, you will automatically
+get this feature.</p>
 
 <p>Log in to Bitbucket, then click on the menu drop-down “Repositories” and
-create a new repository called <code class="highlighter-rouge">planets</code>:</p>
+create a new repository called <code class="highlighter-rouge">cocktails</code>:</p>
 
 <p><img src="../fig/bitbucket-new-repo.png" alt="Creating a Repository" /></p>
 
 <p>This effectively does the following on Bitbucket’s servers:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ mkdir planets
-$ cd planets
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ mkdir cocktails
+$ cd cocktails
 $ git init
 </code></pre>
 </div>
 
-<p>Our local repository still contains our earlier work on <code class="highlighter-rouge">mars.txt</code>, but the
+<p>Our local repository still contains our earlier work on <code class="highlighter-rouge">margherita.md</code>, but the
 remote repository on bitbucket doesn’t contain any files yet.</p>
 
 <p><img src="../fig/git-freshly-made-bitbucket-repo.png" alt="New Repository" /></p>
@@ -240,7 +241,7 @@ repository to the website. However, we will change the
 authentication from SSH to HTTPS, as it is easier to work with for
 now. Use a pattern like this (replacing vlad with your bitbucket username).</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>git remote add origin https://vlad@bitbucket.org/vlad/planets.git
+<div class="bash highlighter-rouge"><pre class="highlight"><code>git remote add origin https://vlad@bitbucket.org/vlad/cocktails.git
 </code></pre>
 </div>
 
@@ -265,8 +266,8 @@ and <a href="https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/">GitLab
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>origin   https://bitbucket.org/vlad/planets.git (push)
-origin   https://bitbucket.org/vlad/planets.git (fetch)
+<div class="output highlighter-rouge"><pre class="highlight"><code>origin   https://bitbucket.org/vlad/cocktails.git (push)
+origin   https://bitbucket.org/vlad/cocktails.git (fetch)
 </code></pre>
 </div>
 
@@ -289,7 +290,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (6/6), done.
 Writing objects: 100% (9/9), 821 bytes, done.
 Total 9 (delta 2), reused 0 (delta 0)
-To https://bitbucket.org/vlad/planets
+To https://bitbucket.org/vlad/cocktails
  * [new branch]      master -&gt; master
 Branch master set up to track remote branch master from origin.
 </code></pre>
@@ -328,7 +329,7 @@ to make git default to using the terminal for usernames and passwords.</p>
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>From https://bitbucket.org/vlad/planets
+<div class="output highlighter-rouge"><pre class="highlight"><code>From https://bitbucket.org/vlad/cocktails
  * branch            master     -&gt; FETCH_HEAD
 Already up-to-date.
 </code></pre>
@@ -340,7 +341,7 @@ bitbucket, though, this command would download them to our local repository.</p>
 
 <h2 id="bitbucket-gui">bitbucket GUI</h2>
 
-<p>Browse to your <code class="highlighter-rouge">planets</code> repository on bitbucket.</p>
+<p>Browse to your <code class="highlighter-rouge">cocktails</code> repository on bitbucket.</p>
 <ul>
   <li>Try clicking on the ‘Source’ button on the left. You can use this to
 browse all the files in your repository. By using the dropdown menu

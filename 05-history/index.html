@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2016-12-08 11:49:38 +0000">
+    <meta http-equiv="last-modified" content="2017-12-07 13:26:39 +0000">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -208,37 +208,36 @@
 identifiers.  You can also refer to the <em>most recent commit</em> of the working
 directory by using the identifier <code class="highlighter-rouge">HEAD</code>.</p>
 
-<p>We’ve been adding one line at a time to <code class="highlighter-rouge">mars.txt</code>, so it’s easy to track our
+<p>We’ve been adding one line at a time to <code class="highlighter-rouge">margherita.md</code>, so it’s easy to track our
 progress by looking, so let’s do that using our <code class="highlighter-rouge">HEAD</code>s.  Before we start,
-let’s make a change to <code class="highlighter-rouge">mars.txt</code>.</p>
+let’s make a change to <code class="highlighter-rouge">margherita.md</code>.</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ gedit mars.txt
-$ cat mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano margherita.md
+$ cat margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
-An ill-considered change
+<div class="output highlighter-rouge"><pre class="highlight"><code>
+Drink slowly
 </code></pre>
 </div>
 
 <p>Now, let’s see what we get.</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff HEAD mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff HEAD margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/mars.txt b/mars.txt
-index b36abfd..0848c8d 100644
-</span><span class="gd">--- a/mars.txt
-</span><span class="gi">+++ b/mars.txt
-</span><span class="gu">@@ -1,3 +1,4 @@
-</span> Cold and dry, but everything is my favorite color
- The two moons may be a problem for Wolfman
- But the Mummy will appreciate the lack of humidity
-<span class="gi">+An ill-considered change.
+<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/margherita.md b/margherita.md
+index e47cfe5..1b56c7c 100644
+</span><span class="gd">--- a/margherita.md
+</span><span class="gi">+++ b/margherita.md
+</span><span class="gu">@@ -12,3 +12,5 @@
+</span>4. Add triple sec
+5. Add tequila
+6. Mix
+<span class="gi">+
++Drink slowly
 </span></code></pre>
 </div>
 
@@ -246,7 +245,7 @@ index b36abfd..0848c8d 100644
 real advantage is that you can also refer to previous commits.  We do
 that by adding <code class="highlighter-rouge">~1</code> to refer to the commit one before <code class="highlighter-rouge">HEAD</code>.</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff HEAD~1 mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff HEAD~1 margherita.md
 </code></pre>
 </div>
 
@@ -254,34 +253,56 @@ that by adding <code class="highlighter-rouge">~1</code> to refer to the commit 
 again, but with the notation <code class="highlighter-rouge">HEAD~1</code>, <code class="highlighter-rouge">HEAD~2</code>, and so on, to refer to old
 commits:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff HEAD~1 mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff HEAD~1 margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/mars.txt b/mars.txt
-index 315bf3a..b36abfd 100644
-</span><span class="gd">--- a/mars.txt
-</span><span class="gi">+++ b/mars.txt
-</span><span class="gu">@@ -1,2 +1,3 @@
-</span> Cold and dry, but everything is my favorite color
- The two moons may be a problem for Wolfman
-<span class="gi">+But the Mummy will appreciate the lack of humidity
+<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/margherita.md b/margherita.md
+index 573eea0..1b56c7c 100644
+</span><span class="gd">--- a/margherita.md
+</span><span class="gi">+++ b/margherita.md
+</span><span class="gu">@@ -6,4 +6,11 @@
+</span>4. Ice
+
+## Method
+<span class="gd">-Chill glass, add ice, lime juice, triple sec and tequila
+</span><span class="gi">+1. Chill glass
++2. Add ice
++3. Add lime juice
++4. Add triple sec
++5. Add tequila
++6. Mix
++
++Drink slowly
 </span></code></pre>
 </div>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff HEAD~2 mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff HEAD~2 margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/mars.txt b/mars.txt
-index df0654a..b36abfd 100644
-</span><span class="gd">--- a/mars.txt
-</span><span class="gi">+++ b/mars.txt
-</span><span class="gu">@@ -1 +1,3 @@
-</span> Cold and dry, but everything is my favorite color
-<span class="gi">+The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
-</span></code></pre>
+<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/margherita.md b/margherita.md
+index 77e5f25..1b56c7c 100644
+</span><span class="gd">--- a/margherita.md
+</span><span class="gi">+++ b/margherita.md
+</span><span class="gu">@@ -3,4 +3,14 @@
+</span>1. Tequilia
+2. Triple Sec
+3. Lime Juice
+<span class="gd">-4. Ice
+</span><span class="gi">+4. Ice
++
++## Method
++1. Chill glass
++2. Add ice
++3. Add lime juice
++4. Add triple sec
++5. Add tequila
++6. Mix
++
++Drink slowly
+</span>
+</code></pre>
 </div>
 
 <p>In this way,
@@ -300,21 +321,32 @@ and “unique” really does mean unique:
 every change to any set of files on any computer
 has a unique 40-character identifier.
 Our first commit was given the ID
-f22b25e3233b4645dabd0d81e651fe074bd8e73b,
+373fb4773ff2ab36416485bb5e86270d46ad415b,
 so let’s try this:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff f22b25e3233b4645dabd0d81e651fe074bd8e73b mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff 373fb4773ff2ab36416485bb5e86270d46ad415b margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/mars.txt b/mars.txt
-index df0654a..b36abfd 100644
-</span><span class="gd">--- a/mars.txt
-</span><span class="gi">+++ b/mars.txt
-</span><span class="gu">@@ -1 +1,3 @@
-</span> Cold and dry, but everything is my favorite color
-<span class="gi">+The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
+<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/margherita.md b/margherita.md
+index eafc011..1b56c7c 100644
+</span><span class="gd">--- a/margherita.md
+</span><span class="gi">+++ b/margherita.md
+</span><span class="gu">@@ -3,3 +3,14 @@
+</span>1. Tequilia
+2. Triple Sec
+3. Lime Juice
+<span class="gi">+4. Ice
++
++## Method
++1. Chill glass
++2. Add ice
++3. Add lime juice
++4. Add triple sec
++5. Add tequila
++6. Mix
++
++Drink slowly
 </span></code></pre>
 </div>
 
@@ -322,18 +354,29 @@ index df0654a..b36abfd 100644
 but typing out random 40-character strings is annoying,
 so Git lets us use just the first few characters:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff f22b25e mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff 373fb4 margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/mars.txt b/mars.txt
-index df0654a..b36abfd 100644
-</span><span class="gd">--- a/mars.txt
-</span><span class="gi">+++ b/mars.txt
-</span><span class="gu">@@ -1 +1,3 @@
-</span> Cold and dry, but everything is my favorite color
-<span class="gi">+The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
+<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/margherita.md b/margherita.md
+index eafc011..1b56c7c 100644
+</span><span class="gd">--- a/margherita.md
+</span><span class="gi">+++ b/margherita.md
+</span><span class="gu">@@ -3,3 +3,14 @@
+</span>1. Tequilia
+2. Triple Sec
+3. Lime Juice
+<span class="gi">+4. Ice
++
++## Method
++1. Chill glass
++2. Add ice
++3. Add lime juice
++4. Add triple sec
++5. Add tequila
++6. Mix
++
++Drink slowly
 </span></code></pre>
 </div>
 
@@ -341,12 +384,12 @@ index df0654a..b36abfd 100644
 How can we restore older versions of things?
 Let’s suppose we accidentally overwrite our file:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ gedit mars.txt
-$ cat mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano margherita.md
+$ cat margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>We will need to manufacture our own oxygen
+<div class="output highlighter-rouge"><pre class="highlight"><code>Add orange juice
 </code></pre>
 </div>
 
@@ -362,7 +405,7 @@ Changes not staged for commit:
   (use "git add &lt;file&gt;..." to update what will be committed)
   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
 
-	modified:   mars.txt
+	modified:   margherita.md
 
 no changes added to commit (use "git add" and/or "git commit -a")
 </code></pre>
@@ -371,14 +414,27 @@ no changes added to commit (use "git add" and/or "git commit -a")
 <p>We can put things back the way they were
 by using <code class="highlighter-rouge">git checkout</code>:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git checkout HEAD mars.txt
-$ cat mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git checkout HEAD margherita.md
+$ cat margherita.md
 </code></pre>
 </div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
+<div class="output highlighter-rouge"><pre class="highlight"><code># Margherita
+## Ingredients
+1. Tequilia
+2. Triple Sec
+3. Lime Juice
+4. Ice
+
+## Method
+1. Chill glass
+2. Add ice
+3. Add lime juice
+4. Add triple sec
+5. Add tequila
+6. Mix
+
+Drink slowly
 </code></pre>
 </div>
 
@@ -390,7 +446,7 @@ which is the last saved commit.
 If we want to go back even further,
 we can use a commit identifier instead:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git checkout f22b25e mars.txt
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git checkout f22b25e margherita.md
 </code></pre>
 </div>
 
@@ -399,12 +455,12 @@ we can use a commit identifier instead:</p>
 
   <p>Above we used</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git checkout f22b25e mars.txt
+  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git checkout f22b25e margherita.md
 </code></pre>
   </div>
 
-  <p>to revert mars.txt to its state after the commit f22b25e.
-If you forget <code class="highlighter-rouge">mars.txt</code> in that command, Git will tell you that “You are in
+  <p>to revert margherita.md to its state after the commit f22b25e.
+If you forget <code class="highlighter-rouge">margherita.md</code> in that command, Git will tell you that “You are in
 ‘detached HEAD’ state.” In this state, you shouldn’t make any changes.
 You can fix this by reattaching your head using <code class="highlighter-rouge">git checkout master</code></p>
 </blockquote>
@@ -516,40 +572,40 @@ Jennifer to use <code class="highlighter-rouge">git revert</code>, what is the m
 <blockquote class="challenge">
   <h2 id="understanding-workflow-and-history">Understanding Workflow and History</h2>
 
-  <p>What is the output of cat venus.txt at the end of this set of commands?</p>
+  <p>What is the output of cat manhattan.md at the end of this set of commands?</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ cd planets
-$ gedit venus.txt #input the following text: Venus is beautiful and full of love
-$ git add venus.txt
-$ gedit venus.txt #add the following text: Venus is too hot to be suitable as a base
-$ git commit -m "comments on Venus as an unsuitable base"
-$ git checkout HEAD venus.txt
-$ cat venus.txt #this will print the contents of venus.txt to the screen
+  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ cd cocktails
+$ nano manhattan.md #input the following text: Manhattan cocktail
+$ git add manhattan.md
+$ nano manhattan.md #add the following text: Whiskey, vermouth, bitters
+$ git commit -m "Add recipe for manhattan"
+$ git checkout HEAD manhattan.md
+$ cat manhattan.md #this will print the contents of manhattan.md to the screen
 </code></pre>
   </div>
 
   <p>1.</p>
 
-  <div class="output highlighter-rouge"><pre class="highlight"><code>Venus is too hot to be suitable as a base
+  <div class="output highlighter-rouge"><pre class="highlight"><code>Manhattan cocktail
 </code></pre>
   </div>
 
   <p>2.</p>
 
-  <div class="output highlighter-rouge"><pre class="highlight"><code>Venus is beautiful and full of love
+  <div class="output highlighter-rouge"><pre class="highlight"><code>Whiskey, vermouth, bitters
 </code></pre>
   </div>
 
   <p>3.</p>
 
-  <div class="output highlighter-rouge"><pre class="highlight"><code>Venus is beautiful and full of love
-Venus is too hot to be suitable as a base
+  <div class="output highlighter-rouge"><pre class="highlight"><code>Manhattan cocktail
+Whiskey, vermouth, bitters
 </code></pre>
   </div>
 
   <p>4.</p>
 
-  <div class="output highlighter-rouge"><pre class="highlight"><code>Error because you have changed venus.txt without committing the changes
+  <div class="output highlighter-rouge"><pre class="highlight"><code>Error because you have changed manhattan.md without committing the changes
 </code></pre>
   </div>
 </blockquote>
@@ -557,10 +613,10 @@ Venus is too hot to be suitable as a base
 <blockquote class="challenge">
   <h2 id="checking-understanding-of-git-diff">Checking Understanding of <code class="highlighter-rouge">git diff</code></h2>
 
-  <p>Consider this command: <code class="highlighter-rouge">git diff HEAD~3 mars.txt</code>. What do you predict this command
+  <p>Consider this command: <code class="highlighter-rouge">git diff HEAD~3 margherita.md</code>. What do you predict this command
 will do if you execute it? What happens when you do execute it? Why?</p>
 
-  <p>Try another command, <code class="highlighter-rouge">git diff [ID] mars.txt</code>, where [ID] is replaced with
+  <p>Try another command, <code class="highlighter-rouge">git diff [ID] margherita.md</code>, where [ID] is replaced with
 the unique identifier for your most recent commit. What do you think will happen,
 and what does happen?</p>
 </blockquote>
@@ -570,7 +626,7 @@ and what does happen?</p>
 
   <p><code class="highlighter-rouge">git checkout</code> can be used to restore a previous commit when unstaged changes have
 been made, but will it also work for changes that have been staged but not committed?
-Make a change to <code class="highlighter-rouge">mars.txt</code>, add that change, and use <code class="highlighter-rouge">git checkout</code> to see if
+Make a change to <code class="highlighter-rouge">margherita.md</code>, add that change, and use <code class="highlighter-rouge">git checkout</code> to see if
 you can remove your change.</p>
 </blockquote>
 
@@ -580,15 +636,15 @@ you can remove your change.</p>
   <p>Exploring history is an important part of git, often it is a challenge to find
 the right commit ID, especially if the commit is from several months ago.</p>
 
-  <p>Imaging the <code class="highlighter-rouge">planets</code> project has more than 50 files.
-You would like to find a commit with specific text in <code class="highlighter-rouge">mars.txt</code> is modified.
+  <p>Imagine the <code class="highlighter-rouge">cocktails</code> project has more than 50 files.
+You would like to find a commit with specific text in <code class="highlighter-rouge">margherita.md</code> is modified.
 When you type <code class="highlighter-rouge">git log</code>, a very long list appeared,
 How can you narrow down the search?</p>
 
   <p>Recorded that the <code class="highlighter-rouge">git diff</code> command allow us to explore one specific file,
-e.g. <code class="highlighter-rouge">git diff mars.txt</code>. We can apply the similar idea here.</p>
+e.g. <code class="highlighter-rouge">git diff margherita.md</code>. We can apply the similar idea here.</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git log mars.txt
+  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git log margherita.md
 </code></pre>
   </div>
 
@@ -598,7 +654,7 @@ How can you search through these files?</p>
   <p>Both <code class="highlighter-rouge">git diff</code> and <code class="highlighter-rouge">git log</code> are very useful and they summarize different part of the history for you.
 Is that possible to combine both? Let’s try the following:</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git log --patch mars.txt
+  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git log --patch margherita.md
 </code></pre>
   </div>
 

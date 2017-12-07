@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2016-12-08 11:49:38 +0000">
+    <meta http-equiv="last-modified" content="2017-12-07 13:26:39 +0000">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -192,12 +192,12 @@
 <p>Once Git is configured, we can start using it.
 Let’s create a directory for our work and then move into that directory:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ mkdir planets
-$ cd planets
+<div class="bash highlighter-rouge"><pre class="highlight"><code>$ mkdir cocktails
+$ cd cocktails
 </code></pre>
 </div>
 
-<p>Then we tell Git to make <code class="highlighter-rouge">planets</code> a <a href="../reference/#repository">repository</a>
+<p>Then we tell Git to make <code class="highlighter-rouge">cocktails</code> a <a href="../reference/#repository">repository</a>
 — a place where Git can store versions of our files:</p>
 
 <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git init
@@ -212,7 +212,7 @@ it appears that nothing has changed:</p>
 </div>
 
 <p>But if we add the <code class="highlighter-rouge">-a</code> flag to show everything,
-we can see that Git has created a hidden directory within <code class="highlighter-rouge">planets</code> called <code class="highlighter-rouge">.git</code>:</p>
+we can see that Git has created a hidden directory within <code class="highlighter-rouge">cocktails</code> called <code class="highlighter-rouge">.git</code>:</p>
 
 <div class="bash highlighter-rouge"><pre class="highlight"><code>$ ls -a
 </code></pre>
@@ -243,21 +243,21 @@ nothing to commit (create/copy files and use "git add" to track)
 <blockquote class="challenge">
   <h2 id="places-to-create-git-repositories">Places to Create Git Repositories</h2>
 
-  <p>Dracula starts a new project, <code class="highlighter-rouge">moons</code>, related to his <code class="highlighter-rouge">planets</code> project.
+  <p>Dracula starts a new project, <code class="highlighter-rouge">whiskey</code>, related to his <code class="highlighter-rouge">cocktails</code> project.
 Despite Wolfman’s concerns, he enters the following sequence of commands to
 create one Git repository inside another:</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ cd             # return to home directory
-$ mkdir planets  # make a new directory planets
-$ cd planets     # go into planets
-$ git init       # make the planets directory a Git repository
-$ mkdir moons    # make a sub-directory planets/moons
-$ cd moons       # go into planets/moons
-$ git init       # make the moons sub-directory a Git repository
+  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ cd               # return to home directory
+$ mkdir cocktails  # make a new directory cocktails
+$ cd cocktails     # go into cocktails
+$ git init         # make the cocktails directory a Git repository
+$ mkdir whiskey    # make a sub-directory cocktails/whiskey
+$ cd whiskey       # go into cocktails/whiskey
+$ git init         # make the whiskey sub-directory a Git repository
 </code></pre>
   </div>
 
-  <p>Why is it a bad idea to do this? (Notice here that the <code class="highlighter-rouge">planets</code> project is now also tracking the entire <code class="highlighter-rouge">mars</code> repository.)
+  <p>Why is it a bad idea to do this? (Notice here that the <code class="highlighter-rouge">cocktails</code> project is now also tracking the entire <code class="highlighter-rouge">whiskey</code> repository.)
 How can Dracula undo his last <code class="highlighter-rouge">git init</code>?</p>
 
   <blockquote class="solution">
@@ -281,30 +281,30 @@ like the following, you are good to go to create a new repository.</p>
 
     <p>Note that we can track files in directories within a Git:</p>
 
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ touch moon phobos deimos titan    # create moon files
-$ cd ..                             # return to planets directory
-$ ls moons                          # list contents of the moons directory
-$ git add moons/*                   # add all contents of planets/moons
-$ git status                        # show moons files in staging area
-$ git commit -m "add moon files"    # commit planets/moons to planets Git repository
+    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ touch glenlivet laphroaig    # create whiskey files
+$ cd ..                        # return to cocktails directory
+$ ls whiskey                   # list contents of the whiskey directory
+$ git add whiskey/*            # add all contents of cocktails/whiskey
+$ git status                   # show whiskey files in staging area
+$ git commit -m "add whiskey files"    # commit cocktails/whiskey to cocktails Git repository
 </code></pre>
     </div>
 
-    <p>Similarly, we can ignore (as discussed later) entire directories, such as the <code class="highlighter-rouge">moons</code> directory:</p>
+    <p>Similarly, we can ignore (as discussed later) entire directories, such as the <code class="highlighter-rouge">whiskey</code> directory:</p>
 
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano .gitignore # open the .gitignore file in the texteditor to add the moons directory
+    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano .gitignore # open the .gitignore file in the texteditor to add the whiskey directory
 $ cat .gitignore # if you run cat afterwards, it should look like this:
 </code></pre>
     </div>
 
-    <div class="output highlighter-rouge"><pre class="highlight"><code>moons
+    <div class="output highlighter-rouge"><pre class="highlight"><code>whiskey
 </code></pre>
     </div>
 
     <p>To recover from this little mistake, Dracula can just remove the <code class="highlighter-rouge">.git</code>
-folder in the moons subdirectory. To do so he can run the following command from inside the ‘moons’ directory:</p>
+folder in the whiskey subdirectory. To do so he can run the following command from inside the ‘whiskey’ directory:</p>
 
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ rm -rf moons/.git
+    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ rm -rf .git
 </code></pre>
     </div>
 
