@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2017-12-07 13:49:56 +0000">
+    <meta http-equiv="last-modified" content="2019-05-09 12:34:32 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -180,10 +180,10 @@
       <strong>Objectives</strong>
       <ul>
 	
-	<li><p>Configure <code class="highlighter-rouge">git</code> the first time it is used on a computer.</p>
+	<li><p>Configure <code>git</code> the first time it is used on a computer.</p>
 </li>
 	
-	<li><p>Understand the meaning of the <code class="highlighter-rouge">--global</code> configuration flag.</p>
+	<li><p>Understand the meaning of the <code>--global</code> configuration flag.</p>
 </li>
 	
       </ul>
@@ -203,15 +203,14 @@ of configurations we will set as we get started with Git:</p>
   <li>and that we want to use these settings globally (i.e. for every project)</li>
 </ul>
 
-<p>On a command line, Git commands are written as <code class="highlighter-rouge">git verb</code>,
-where <code class="highlighter-rouge">verb</code> is what we actually want to do. So here is how
+<p>On a command line, Git commands are written as <code>git verb</code>,
+where <code>verb</code> is what we actually want to do. So here is how
 Dracula sets up his new laptop:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git config --global user.name "Vlad Dracula"
+<pre class="bash"><code>$ git config --global user.name "Vlad Dracula"
 $ git config --global user.email "vlad@tran.sylvan.ia"
 $ git config --global color.ui "auto"
 </code></pre>
-</div>
 
 <p>Please use your own name and email address instead of Dracula’s.
 This user name and email will be associated with your subsequent Git activity,
@@ -219,7 +218,7 @@ which means that any changes pushed to an online Git host server in a
 later lesson will include this information.
 If you are concerned about privacy, please review <a href="https://help.github.com/articles/keeping-your-email-address-private/">GitHub’s instructions for keeping your email address private</a>.</p>
 
-<p>He also has to set his favorite text editor, following this table:</p>
+<p>You can also set your favorite text editor, following this table:</p>
 
 <table>
   <thead>
@@ -231,55 +230,55 @@ If you are concerned about privacy, please review <a href="https://help.github.c
   <tbody>
     <tr>
       <td style="text-align: left">Atom</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "atom --wait"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "atom --wait"</code></td>
     </tr>
     <tr>
       <td style="text-align: left">nano</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "nano -w"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "nano -w"</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Text Wrangler (Mac)</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "edit -w"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "edit -w"</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Sublime Text (Mac)</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "subl -n -w"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "subl -n -w"</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Sublime Text (Win, 32-bit install)</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "'c:/program files (x86)/sublime text 3/sublime_text.exe' -w"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "'c:/program files (x86)/sublime text 3/sublime_text.exe' -w"</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Sublime Text (Win, 64-bit install)</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "'c:/program files/sublime text 3/sublime_text.exe' -w"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "'c:/program files/sublime text 3/sublime_text.exe' -w"</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Notepad++ (Win, 32-bit install)</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "'c:/program files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "'c:/program files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Notepad++ (Win, 64-bit install)</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "'c:/program files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "'c:/program files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Kate (Linux)</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "kate"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "kate"</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Gedit (Linux)</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "gedit -s -w"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "gedit -s -w"</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Scratch (Linux)</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "scratch-text-editor"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "scratch-text-editor"</code></td>
     </tr>
     <tr>
       <td style="text-align: left">emacs</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "emacs"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "emacs"</code></td>
     </tr>
     <tr>
       <td style="text-align: left">vim</td>
-      <td style="text-align: left"><code class="highlighter-rouge">$ git config --global core.editor "vim"</code></td>
+      <td style="text-align: left"><code>$ git config --global core.editor "vim"</code></td>
     </tr>
   </tbody>
 </table>
@@ -289,22 +288,21 @@ If you are concerned about privacy, please review <a href="https://help.github.c
 <blockquote class="callout">
   <h2 id="exiting-vim">Exiting Vim</h2>
 
-  <p>Note that <code class="highlighter-rouge">vim</code> is the default editor for for many programs, if you haven’t used <code class="highlighter-rouge">vim</code> before and wish to exit a session, type <code class="highlighter-rouge">Esc</code> then <code class="highlighter-rouge">:q!</code> and <code class="highlighter-rouge">Enter</code>.</p>
+  <p>Note that <code>vim</code> is the default editor for for many programs, if you haven’t used <code>vim</code> before and wish to exit a session, type <code>Esc</code> then <code>:q!</code> and <code>Enter</code>.</p>
 </blockquote>
 
-<p>The four commands we just ran above only need to be run once: the flag <code class="highlighter-rouge">--global</code> tells Git
+<p>The four commands we just ran above only need to be run once: the flag <code>--global</code> tells Git
 to use the settings for every project, in your user account, on this computer.</p>
 
 <p>You can check your settings at any time:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git config --list
+<pre class="bash"><code>$ git config --list
 </code></pre>
-</div>
 
 <p>You can change your configuration as many times as you want: just use the
 same commands to choose another editor or update your email
 address. On Linux, the settings are saved in a file called
-<code class="highlighter-rouge">.gitconfig</code> in your home directory.</p>
+<code>.gitconfig</code> in your home directory.</p>
 
 <blockquote class="callout">
   <h2 id="proxy">Proxy</h2>
@@ -313,17 +311,15 @@ address. On Linux, the settings are saved in a file called
 <a href="https://en.wikipedia.org/wiki/Proxy_server">proxy</a>. If this is the case, you
 may also need to tell Git about the proxy:</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git config --global http.proxy proxy-url
+  <pre class="bash"><code>$ git config --global http.proxy proxy-url
 $ git config --global https.proxy proxy-url
 </code></pre>
-  </div>
 
   <p>To disable the proxy, use</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git config --global --unset http.proxy
+  <pre class="bash"><code>$ git config --global --unset http.proxy
 $ git config --global --unset https.proxy
 </code></pre>
-  </div>
 </blockquote>
 
 <blockquote class="callout">
@@ -331,10 +327,9 @@ $ git config --global --unset https.proxy
 
   <p>Always remember that if you forget a git command, you can access the list of command by using -h and access the git manual by using –help :</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git config -h
+  <pre class="bash"><code>$ git config -h
 $ git config --help
 </code></pre>
-  </div>
 </blockquote>
 
 
@@ -342,7 +337,7 @@ $ git config --help
   <h2>Key Points</h2>
   <ul>
     
-    <li><p>Use <code class="highlighter-rouge">git config</code> to configure a user name, email address, editor, and other preferences once per machine.</p>
+    <li><p>Use <code>git config</code> to configure a user name, email address, editor, and other preferences once per machine.</p>
 </li>
     
   </ul>

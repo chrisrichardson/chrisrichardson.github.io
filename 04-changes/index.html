@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2017-12-07 13:49:56 +0000">
+    <meta http-equiv="last-modified" content="2019-05-09 12:34:32 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -198,176 +198,147 @@
 
 </blockquote>
 
-<p>Let’s start off by learning some Markdown. Markdown is a rich text format,
-which allows us to add a few features (such as bold, italic,
-underline, and weblinks) to normal text. These features only appear when
-the text is rendered in a suitable browser. This website is actually
-written in Markdown. You can find a <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown
-Cheatsheet</a>
-online.
-Basically, headers start with a <code class="highlighter-rouge">#</code> symbol:</p>
+<p>Let’s start off by learning some simple Python. Python is a scripting
+language, which has become very popular. We’ll start off by writing a
+very basic program.</p>
 
-<p><code class="highlighter-rouge"># Header 1</code></p>
-<h1 id="header-1">Header 1</h1>
-<p><code class="highlighter-rouge">### Header 3</code></p>
-<h3 id="header-3">Header 3</h3>
-
-<p>Emphasis is done with asterisks <code class="highlighter-rouge">**bold**</code> = <strong>bold</strong>, and lists are
-just numbered. See the cheatsheet. We’ll use Markdown to create a few files.
-Later, we’ll get a website to render them properly.</p>
-
-<p>Let’s create a file called <code class="highlighter-rouge">margherita.md</code> that contains some notes
-about making a margherita cocktail. (Markdown files usually have the
-<code class="highlighter-rouge">.md</code> suffix).
-(We’ll use <code class="highlighter-rouge">nano</code> to edit the file;
+<p>Let’s create a file called <code>loop.py</code> that contains a simple loop.
+(Python files usually have the <code>.py</code> suffix).
+(We’ll use <code>nano</code> to edit the file;
 you can use whatever editor you like.
-In particular, this does not have to be the <code class="highlighter-rouge">core.editor</code> you set
+In particular, this does not have to be the <code>core.editor</code> you set
 globally earlier.)</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano margherita.md
+<pre class="bash"><code>$ nano loop.py
 </code></pre>
-</div>
 
-<p>Type some text into the <code class="highlighter-rouge">margherita.md</code> file, e.g.:</p>
+<p>Type the following into the <code>loop.py</code> file:</p>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code># Margherita
-## Ingredients
-1. tequila
-2. triple sec
-3. lime juice
+<pre class="output"><code>for i in range(1, 100):
+    print(i)
 </code></pre>
-</div>
 
-<p><code class="highlighter-rouge">margherita.md</code> now contains a few lines, which we can see by running:</p>
+<p>Note that the second line begins with 4 spaces (not a tab).</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ ls
+<p><code>loop.py</code> now contains two lines, which we can see by running:</p>
+
+<pre class="bash"><code>$ ls
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>margherita.md
+<pre class="output"><code>loop.py
 </code></pre>
-</div>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ cat margherita.md
+<pre class="bash"><code>$ cat loop.py
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code># Margherita
-## Ingredients
-1. tequila
-2. triple sec
-3. lime juice
+<pre class="output"><code>for i in range(1, 100):
+    print(i)
 </code></pre>
-</div>
+
+<p class="bash">You can also run the program by typing
+~~~
+$ python loop.py
+~~~</p>
+
+<p>which should print out the numbers from 1 to 99.</p>
 
 <p>If we check the status of our project again,
 Git tells us that it’s noticed the new file:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git status
+<pre class="bash"><code>$ git status
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>On branch master
+<pre class="output"><code>On branch master
 
 Initial commit
 
 Untracked files:
    (use "git add &lt;file&gt;..." to include in what will be committed)
 
-	margherita.md
+	loop.py
 nothing added to commit but untracked files present (use "git add" to track)
 </code></pre>
-</div>
 
 <p>The “untracked files” message means that there’s a file in the directory
 that Git isn’t keeping track of.
-We can tell Git to track a file using <code class="highlighter-rouge">git add</code>:</p>
+We can tell Git to track a file using <code>git add</code>:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add margherita.md
+<pre class="bash"><code>$ git add loop.py
 </code></pre>
-</div>
 
 <p>and then check that the right thing happened:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git status
+<pre class="bash"><code>$ git status
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>On branch master
+<pre class="output"><code>On branch master
 
 Initial commit
 
 Changes to be committed:
   (use "git rm --cached &lt;file&gt;..." to unstage)
 
-	new file:   margherita.md
+	new file:   loop.py
 
 </code></pre>
-</div>
 
-<p>Git now knows that it’s supposed to keep track of <code class="highlighter-rouge">margherita.md</code>,
+<p>Git now knows that it’s supposed to keep track of <code>loop.py</code>,
 but it hasn’t recorded these changes as being final yet.
 To get it to do that, we need to run one more command:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git commit -m "Start recipe for margherita"
+<pre class="bash"><code>$ git commit -m "Start python program"
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>[master (root-commit) 373fb47] Start recipe for margherita
+<pre class="output"><code>[master (root-commit) 373fb47] Start python program
  1 file changed, 5 insertions(+)
- create mode 100644 margherita.md
+ create mode 100644 loop.py
 </code></pre>
-</div>
 
-<p>When we run <code class="highlighter-rouge">git commit</code>,
-Git takes everything we have told it to save by using <code class="highlighter-rouge">git add</code>
-and stores a copy permanently inside the special <code class="highlighter-rouge">.git</code> directory.
+<p>When we run <code>git commit</code>,
+Git takes everything we have told it to save by using <code>git add</code>
+and stores a copy permanently inside the special <code>.git</code> directory.
 This permanent copy is called a <a href="../reference/#commit">commit</a>
-(or <a href="../reference/#revision">revision</a>) and its short identifier is <code class="highlighter-rouge">373fb47</code>
+(or <a href="../reference/#revision">revision</a>) and its short identifier is <code>373fb47</code>
 (Your commit will have a different identifier.)</p>
 
-<p>We use the <code class="highlighter-rouge">-m</code> flag (for “message”)
+<p>We use the <code>-m</code> flag (for “message”)
 to record a short, descriptive, and specific comment that will help us remember later on what we did and why.
-If we just run <code class="highlighter-rouge">git commit</code> without the <code class="highlighter-rouge">-m</code> option,
-Git will launch <code class="highlighter-rouge">nano</code> (or whatever other editor we configured as <code class="highlighter-rouge">core.editor</code>)
+If we just run <code>git commit</code> without the <code>-m</code> option,
+Git will launch <code>nano</code> (or whatever other editor we configured as <code>core.editor</code>)
 so that we can write a longer message.</p>
 
 <p><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Good commit messages</a> start with a brief (&lt;50 characters) summary of
 changes made in the commit.  If you want to go into more detail, add
 a blank line between the summary line and your additional notes.</p>
 
-<p>If we run <code class="highlighter-rouge">git status</code> now:</p>
+<p>If we run <code>git status</code> now:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git status
+<pre class="bash"><code>$ git status
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>On branch master
+<pre class="output"><code>On branch master
 nothing to commit, working directory clean
 </code></pre>
-</div>
 
 <p>it tells us everything is up to date.
 If we want to know what we’ve done recently,
-we can ask Git to show us the project’s history using <code class="highlighter-rouge">git log</code>:</p>
+we can ask Git to show us the project’s history using <code>git log</code>:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git log
+<pre class="bash"><code>$ git log
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>commit 373fb4773ff2ab36416485bb5e86270d46ad415b
+<pre class="output"><code>commit 373fb4773ff2ab36416485bb5e86270d46ad415b
 Author: Chris Richardson &lt;chris@bpi.cam.ac.uk&gt;
 Date:   Tue Dec 5 09:53:58 2017 +0000
 
-    Start recipe for margherita
+    Start python program
 </code></pre>
-</div>
 
-<p><code class="highlighter-rouge">git log</code> lists all commits  made to a repository in reverse chronological order.
+<p><code>git log</code> lists all commits  made to a repository in reverse chronological order.
 The listing for each commit includes
 the commit’s full identifier
 (which starts with the same characters as
-the short identifier printed by the <code class="highlighter-rouge">git commit</code> command earlier),
+the short identifier printed by the <code>git commit</code> command earlier),
 the commit’s author,
 when it was created,
 and the log message Git was given when the commit was created.</p>
@@ -375,125 +346,112 @@ and the log message Git was given when the commit was created.</p>
 <blockquote class="callout">
   <h2 id="where-are-my-changes">Where Are My Changes?</h2>
 
-  <p>If we run <code class="highlighter-rouge">ls</code> at this point, we will still see just one file called <code class="highlighter-rouge">margherita.md</code>.
+  <p>If we run <code>ls</code> at this point, we will still see just one file called <code>loop.py</code>.
 That’s because Git saves information about files’ history
-in the special <code class="highlighter-rouge">.git</code> directory mentioned earlier
+in the special <code>.git</code> directory mentioned earlier
 so that our filesystem doesn’t become cluttered
 (and so that we can’t accidentally edit or delete an old version).</p>
 </blockquote>
 
 <p>Now suppose I add more information to the file.
-(Again, we’ll edit with <code class="highlighter-rouge">nano</code> and then <code class="highlighter-rouge">cat</code> the file to show its contents;
-you may use a different editor, and don’t need to <code class="highlighter-rouge">cat</code>.)</p>
+(Again, we’ll edit with <code>nano</code> and then <code>cat</code> the file to show its contents;
+you may use a different editor, and don’t need to <code>cat</code>.)</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano margherita.md
-$ cat margherita.md
+<pre class="bash"><code>$ nano loop.py
+$ cat loop.py
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code># Margherita
-## Ingredients
-1. Tequilia
-2. Triple Sec
-3. Lime Juice
-4. Ice
+<pre class="output"><code># Written by Chris
+for i in range(1, 100):
+    print(i)
 </code></pre>
-</div>
 
-<p>When we run <code class="highlighter-rouge">git status</code> now,
+<p>When we run <code>git status</code> now,
 it tells us that a file it already knows about has been modified:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git status
+<pre class="bash"><code>$ git status
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>On branch master
+<pre class="output"><code>On branch master
 Changes not staged for commit:
   (use "git add &lt;file&gt;..." to update what will be committed)
   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
 
-	modified:   margherita.md
+	modified:   loop.py
 
 no changes added to commit (use "git add" and/or "git commit -a")
 </code></pre>
-</div>
 
 <p>The last line is the key phrase:
 “no changes added to commit”.
 We have changed this file,
 but we haven’t told Git we will want to save those changes
-(which we do with <code class="highlighter-rouge">git add</code>)
-nor have we saved them (which we do with <code class="highlighter-rouge">git commit</code>).
+(which we do with <code>git add</code>)
+nor have we saved them (which we do with <code>git commit</code>).
 So let’s do that now. It is good practice to always review
-our changes before saving them. We do this using <code class="highlighter-rouge">git diff</code>.
+our changes before saving them. We do this using <code>git diff</code>.
 This shows us the differences between the current state
 of the file and the most recently saved version:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff
+<pre class="bash"><code>$ git diff
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/margherita.md b/margherita.md
+<pre class="output"><code>diff --git a/loop.py b/loop.py
 index eafc011..77e5f25 100644
-</span><span class="gd">--- a/margherita.md
-</span><span class="gi">+++ b/margherita.md
-</span><span class="gu">@@ -3,3 +3,4 @@
-</span> 1. Tequilia
+--- a/loop.py
++++ b/loop.py
+@@ -3,3 +3,4 @@
+ 1. Tequilia
  2. Triple Sec
  3. Lime Juice
-<span class="gi">+4. Ice
-</span></code></pre>
-</div>
++4. Ice
+</code></pre>
 
 <p>The output is cryptic because
-it is actually a series of commands for tools like editors and <code class="highlighter-rouge">patch</code>
+it is actually a series of commands for tools like editors and <code>patch</code>
 telling them how to reconstruct one file given the other.
 If we break it down into pieces:</p>
 
 <ol>
-  <li>The first line tells us that Git is producing output similar to the Unix <code class="highlighter-rouge">diff</code> command
+  <li>The first line tells us that Git is producing output similar to the Unix <code>diff</code> command
 comparing the old and new versions of the file.</li>
   <li>The second line tells exactly which versions of the file
 Git is comparing;
-<code class="highlighter-rouge">eafc011</code> and <code class="highlighter-rouge">77e5f25</code> are unique computer-generated labels for those versions.</li>
+<code>eafc011</code> and <code>77e5f25</code> are unique computer-generated labels for those versions.</li>
   <li>The third and fourth lines once again show the name of the file being changed.</li>
   <li>The remaining lines are the most interesting, they show us the actual differences
 and the lines on which they occur.
 In particular,
-the <code class="highlighter-rouge">+</code> marker in the first column shows where we added a line.</li>
+the <code>+</code> marker in the first column shows where we added a line.</li>
 </ol>
 
 <p>After reviewing our change, it’s time to commit it:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git commit -m "Add some ice"
+<pre class="bash"><code>$ git commit -m "Add some ice"
 $ git status
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>On branch master
+<pre class="output"><code>On branch master
 Changes not staged for commit:
   (use "git add &lt;file&gt;..." to update what will be committed)
   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
 
-	modified:   margherita.md
+	modified:   loop.py
 
 no changes added to commit (use "git add" and/or "git commit -a")
 </code></pre>
-</div>
 
 <p>Whoops:
-Git won’t commit because we didn’t use <code class="highlighter-rouge">git add</code> first.
+Git won’t commit because we didn’t use <code>git add</code> first.
 Let’s fix that:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add margherita.md
+<pre class="bash"><code>$ git add loop.py
 $ git commit -m "Add some ice"
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>[master 34961b1] Add some ice
+<pre class="output"><code>[master 34961b1] Add some ice
  1 file changed, 1 insertion(+)
 </code></pre>
-</div>
 
 <p>Git insists that we add files to the set we want to commit
 before actually committing anything. This allows us to commit our
@@ -517,18 +475,18 @@ but not yet committed.</p>
   <h2 id="staging-area">Staging Area</h2>
 
   <p>If you think of Git as taking snapshots of changes over the life of a project,
-<code class="highlighter-rouge">git add</code> specifies <em>what</em> will go in a snapshot
+<code>git add</code> specifies <em>what</em> will go in a snapshot
 (putting things in the staging area),
-and <code class="highlighter-rouge">git commit</code> then <em>actually takes</em> the snapshot, and
+and <code>git commit</code> then <em>actually takes</em> the snapshot, and
 makes a permanent record of it (as a commit).
-If you don’t have anything staged when you type <code class="highlighter-rouge">git commit</code>,
-Git will prompt you to use <code class="highlighter-rouge">git commit -a</code> or <code class="highlighter-rouge">git commit --all</code>,
+If you don’t have anything staged when you type <code>git commit</code>,
+Git will prompt you to use <code>git commit -a</code> or <code>git commit --all</code>,
 which is kind of like gathering <em>everyone</em> for the picture!
 However, it’s almost always better to
 explicitly add things to the staging area, because you might
 commit changes you forgot you made. (Going back to snapshots,
 you might get the extra with incomplete makeup walking on
-the stage for the snapshot because you used <code class="highlighter-rouge">-a</code>!)
+the stage for the snapshot because you used <code>-a</code>!)
 Try to stage things manually,
 or you might find yourself searching for “git undo commit” more
 than you would like!</p>
@@ -542,12 +500,11 @@ and into long-term storage.
 First,
 we’ll add a few more lines to the file:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano margherita.md
-$ cat margherita.md
+<pre class="bash"><code>$ nano loop.py
+$ cat loop.py
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code># Margherita
+<pre class="output"><code># Margherita
 ## Ingredients
 1. Tequilia
 2. Triple Sec
@@ -557,36 +514,32 @@ $ cat margherita.md
 ## Method
 Chill glass, add ice, lime juice, triple sec and tequila
 </code></pre>
-</div>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff
+<pre class="bash"><code>$ git diff
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/margherita.md b/margherita.md
+<pre class="output"><code>diff --git a/loop.py b/loop.py
 index 77e5f25..573eea0 100644
-</span><span class="gd">--- a/margherita.md
-</span><span class="gi">+++ b/margherita.md
-</span><span class="gu">@@ -3,4 +3,7 @@
-</span> 1. Tequilia
+--- a/loop.py
++++ b/loop.py
+@@ -3,4 +3,7 @@
+ 1. Tequilia
  2. Triple Sec
  3. Lime Juice
-<span class="gi">+
++
 +## Method
 +Chill glass, add ice, lime juice, triple sec and tequila
-</span></code></pre>
-</div>
+</code></pre>
 
 <p>So far, so good:
 we’ve added some lines to the end of the file
-(shown with a <code class="highlighter-rouge">+</code> in the first column).
+(shown with a <code>+</code> in the first column).
 Now let’s put that change in the staging area
-and see what <code class="highlighter-rouge">git diff</code> reports:</p>
+and see what <code>git diff</code> reports:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add margherita.md
+<pre class="bash"><code>$ git add loop.py
 $ git diff
 </code></pre>
-</div>
 
 <p>There is no output:
 as far as Git can tell,
@@ -595,56 +548,49 @@ and what’s currently in the directory.
 However,
 if we do this:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git diff --staged
+<pre class="bash"><code>$ git diff --staged
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code><span class="gh">diff --git a/margherita.md b/margherita.md
+<pre class="output"><code>diff --git a/loop.py b/loop.py
 index 77e5f25..573eea0 100644
-</span><span class="gd">--- a/margherita.md
-</span><span class="gi">+++ b/margherita.md
-</span><span class="gu">@@ -3,4 +3,7 @@
-</span> 1. Tequilia
+--- a/loop.py
++++ b/loop.py
+@@ -3,4 +3,7 @@
+ 1. Tequilia
  2. Triple Sec
  3. Lime Juice
-<span class="gi">+
++
 +## Method
 +Chill glass, add ice, lime juice, triple sec and tequila
-</span></code></pre>
-</div>
+</code></pre>
 
 <p>it shows us the difference between
 the last committed change
 and what’s in the staging area.
 Let’s save our changes:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git commit -m "Add a method"
+<pre class="bash"><code>$ git commit -m "Add a method"
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>[master 941ecf6] Add a method
+<pre class="output"><code>[master 941ecf6] Add a method
  1 file changed, 3 insertions(+)
 </code></pre>
-</div>
 
 <p>check our status:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git status
+<pre class="bash"><code>$ git status
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>On branch master
+<pre class="output"><code>On branch master
 nothing to commit, working directory clean
 </code></pre>
-</div>
 
 <p>and look at the history of what we’ve done so far:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git log
+<pre class="bash"><code>$ git log
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>commit 941ecf6d4a945bf88d86e4e3791dbd43b2558b6e
+<pre class="output"><code>commit 941ecf6d4a945bf88d86e4e3791dbd43b2558b6e
 Author: Chris Richardson &lt;chris@bpi.cam.ac.uk&gt;
 Date:   Tue Dec 5 10:03:18 2017 +0000
 
@@ -662,74 +608,67 @@ Date:   Tue Dec 5 09:53:58 2017 +0000
 
     Start recipe for margherita
 </code></pre>
-</div>
 
 <blockquote class="callout">
   <h2 id="paging-the-log">Paging the Log</h2>
 
-  <p>When the output of <code class="highlighter-rouge">git log</code> is too long to fit in your screen,
-<code class="highlighter-rouge">git</code> uses a program to split it into pages of the size of your screen.
+  <p>When the output of <code>git log</code> is too long to fit in your screen,
+<code>git</code> uses a program to split it into pages of the size of your screen.
 When this “pager” is called, you will notice that the last line in your
-screen is a <code class="highlighter-rouge">:</code>, instead of your usual prompt.</p>
+screen is a <code>:</code>, instead of your usual prompt.</p>
 
   <ul>
-    <li>To get out of the pager, press <code class="highlighter-rouge">q</code>.</li>
+    <li>To get out of the pager, press <code>q</code>.</li>
     <li>To move to the next page, press the space bar.</li>
-    <li>To search for <code class="highlighter-rouge">some_word</code> in all pages, type <code class="highlighter-rouge">/some_word</code>
-and navigate throught matches pressing <code class="highlighter-rouge">n</code>.</li>
+    <li>To search for <code>some_word</code> in all pages, type <code>/some_word</code>
+and navigate throught matches pressing <code>n</code>.</li>
   </ul>
 </blockquote>
 
 <blockquote class="callout">
   <h2 id="limit-log-size">Limit Log Size</h2>
 
-  <p>To avoid that <code class="highlighter-rouge">git log</code> cover all your terminal screen you can
-limit the numbers of commit that Git will list by using <code class="highlighter-rouge">-N</code>
-where <code class="highlighter-rouge">N</code> is the number of commits that you want to receive
+  <p>To avoid that <code>git log</code> cover all your terminal screen you can
+limit the numbers of commit that Git will list by using <code>-N</code>
+where <code>N</code> is the number of commits that you want to receive
 the information. For example, if you only want the information
 from the last commit you can use</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git log -1
+  <pre class="bash"><code>$ git log -1
 </code></pre>
-  </div>
 
-  <div class="output highlighter-rouge"><pre class="highlight"><code>commit 941ecf6d4a945bf88d86e4e3791dbd43b2558b6e
+  <pre class="output"><code>commit 941ecf6d4a945bf88d86e4e3791dbd43b2558b6e
 Author: Chris Richardson &lt;chris@bpi.cam.ac.uk&gt;
 Date:   Tue Dec 5 10:03:18 2017 +0000
 
    Add a method
 </code></pre>
-  </div>
 
   <p>You can also reduce the quantity of information using the
-<code class="highlighter-rouge">--oneline</code> option:</p>
+<code>--oneline</code> option:</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git log --oneline
+  <pre class="bash"><code>$ git log --oneline
 </code></pre>
-  </div>
-  <div class="output highlighter-rouge"><pre class="highlight"><code>* 941ecf6 Add a method
+  <pre class="output"><code>* 941ecf6 Add a method
 * 171e6b2 Add some ice
 * 373fb47 Start recipe for margherita
 </code></pre>
-  </div>
 
-  <p>You can also combine the <code class="highlighter-rouge">--oneline</code> options with others. One useful
+  <p>You can also combine the <code>--oneline</code> options with others. One useful
 combination is</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git log --oneline --graph --all --decorate
+  <pre class="bash"><code>$ git log --oneline --graph --all --decorate
 </code></pre>
-  </div>
-  <div class="output highlighter-rouge"><pre class="highlight"><code>* 941ecf6 (HEAD -&gt; master) Add a method
+  <pre class="output"><code>* 941ecf6 (HEAD -&gt; master) Add a method
 * 171e6b2 Add some ice
 * 373fb47 Start recipe for margherita
 </code></pre>
-  </div>
 </blockquote>
 
 <p>To recap, when we want to add changes to our repository,
 we first need to add the changed files to the staging area
-(<code class="highlighter-rouge">git add</code>) and then commit the staged changes to the
-repository (<code class="highlighter-rouge">git commit</code>):</p>
+(<code>git add</code>) and then commit the staged changes to the
+repository (<code>git commit</code>):</p>
 
 <p><img src="../fig/git-committing.svg" alt="The Git Commit Workflow" /></p>
 
@@ -737,11 +676,11 @@ repository (<code class="highlighter-rouge">git commit</code>):</p>
   <h2 id="choosing-a-commit-message">Choosing a Commit Message</h2>
 
   <p>Which of the following commit messages would be most appropriate for the
-last commit made to <code class="highlighter-rouge">margherita.md</code>?</p>
+last commit made to <code>loop.py</code>?</p>
 
   <ol>
     <li>“Changes”</li>
-    <li>“Added line ‘Chill glass, add ice, lime juice, triple sec and tequila’ to margherita.md”</li>
+    <li>“Added line ‘Chill glass, add ice, lime juice, triple sec and tequila’ to loop.py”</li>
     <li>“Add method for making margherita”</li>
   </ol>
 
@@ -758,23 +697,23 @@ but answer 3 is good: short but descriptive.</p>
 <blockquote class="challenge">
   <h2 id="committing-changes-to-git">Committing Changes to Git</h2>
 
-  <p>Which command(s) below would save the changes of <code class="highlighter-rouge">myfile.txt</code>
+  <p>Which command(s) below would save the changes of <code>myfile.txt</code>
 to my local Git repository?</p>
 
   <ol>
     <li>
-      <p><code class="highlighter-rouge">$ git commit -m "my recent changes"</code></p>
+      <p><code>$ git commit -m "my recent changes"</code></p>
     </li>
     <li>
-      <p><code class="highlighter-rouge">$ git init myfile.txt</code>
-<code class="highlighter-rouge">$ git commit -m "my recent changes"</code></p>
+      <p><code>$ git init myfile.txt</code>
+<code>$ git commit -m "my recent changes"</code></p>
     </li>
     <li>
-      <p><code class="highlighter-rouge">$ git add myfile.txt</code>
-<code class="highlighter-rouge">$ git commit -m "my recent changes"</code></p>
+      <p><code>$ git add myfile.txt</code>
+<code>$ git commit -m "my recent changes"</code></p>
     </li>
     <li>
-      <p><code class="highlighter-rouge">$ git commit -m myfile.txt "my recent changes"</code></p>
+      <p><code>$ git commit -m myfile.txt "my recent changes"</code></p>
     </li>
   </ol>
 
@@ -797,8 +736,8 @@ to my local Git repository?</p>
 that you want to commit as a single snapshot.</p>
 
   <ol>
-    <li>Add some text to <code class="highlighter-rouge">margherita.md</code> reorganising the method as a list.</li>
-    <li>Create a new file <code class="highlighter-rouge">manhattan.md</code> with your initial thoughts
+    <li>Add some text to <code>loop.py</code> reorganising the method as a list.</li>
+    <li>Create a new file <code>manhattan.md</code> with your initial thoughts
 about a different cocktail (or something else of your choice).</li>
     <li>Add changes from both files to the staging area,
 and commit those changes.</li>
@@ -807,12 +746,12 @@ and commit those changes.</li>
   <blockquote class="solution">
     <h2 id="solution-2">Solution</h2>
 
-    <p>First we make our changes to the <code class="highlighter-rouge">margherita.md</code> and <code class="highlighter-rouge">manhattan.md</code> files:</p>
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano margherita.md
-$ cat margherita.md
-</code></pre>
-    </div>
-    <div class="output highlighter-rouge"><pre class="highlight"><code># Margherita
+    <p class="bash">First we make our changes to the <code>loop.py</code> and <code>manhattan.md</code> files:
+~~~
+$ nano loop.py
+$ cat loop.py
+~~~</p>
+    <pre class="output"><code># Margherita
 ## Ingredients
 1. Tequilia
 2. Triple Sec
@@ -827,35 +766,30 @@ $ cat margherita.md
 5. Add tequila
 6. Mix
 </code></pre>
-    </div>
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano manhattan.md
+    <pre class="bash"><code>$ nano manhattan.md
 $ cat manhattan.md
 </code></pre>
-    </div>
-    <div class="output highlighter-rouge"><pre class="highlight"><code> # Manhattan
+    <pre class="output"><code> # Manhattan
 ## Ingredients
 Whiskey, vermouth, bitters
 </code></pre>
-    </div>
     <p>Now you can add both files to the staging area. We can do that in one line:</p>
 
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add margherita.md manhattan.md
+    <pre class="bash"><code>$ git add loop.py manhattan.md
 </code></pre>
-    </div>
-    <p>Or with multiple commands:</p>
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add margherita.md
+    <p class="bash">Or with multiple commands:
+~~~
+$ git add loop.py
 $ git add manhattan.md
-</code></pre>
-    </div>
-    <p>Now the files are ready to commit. You can check that using <code class="highlighter-rouge">git status</code>. If you are ready to commit use:</p>
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git commit -m "Updated Margherita and started on Manhattan"
-</code></pre>
-    </div>
-    <div class="output highlighter-rouge"><pre class="highlight"><code>[master cc127c2]
+~~~</p>
+    <p class="bash">Now the files are ready to commit. You can check that using <code>git status</code>. If you are ready to commit use:
+~~~
+$ git commit -m “Updated Margherita and started on Manhattan”
+~~~</p>
+    <pre class="output"><code>[master cc127c2]
 Updated Margherita and started on Manhattan
 2 files changed, 2 insertions(+)
 </code></pre>
-    </div>
     <p>~~~</p>
   </blockquote>
 </blockquote>
@@ -868,29 +802,26 @@ You are named as the author and as the committer. You can observe
 that by telling Git to show you more information about your last
 commits:</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git log --format=full
+  <pre class="bash"><code>$ git log --format=full
 </code></pre>
-  </div>
 
   <p>When commiting you can name someone else as the author:</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git commit --author="Vlad Dracula &lt;vlad@tran.sylvan.ia&gt;"
+  <pre class="bash"><code>$ git commit --author="Vlad Dracula &lt;vlad@tran.sylvan.ia&gt;"
 </code></pre>
-  </div>
 
   <p>Create a new repository and create two commits: one without the
-<code class="highlighter-rouge">--author</code> option and one by naming a colleague of yours as the
-author. Run <code class="highlighter-rouge">git log</code> and <code class="highlighter-rouge">git log --format=full</code>. Think about ways
+<code>--author</code> option and one by naming a colleague of yours as the
+author. Run <code>git log</code> and <code>git log --format=full</code>. Think about ways
 how that can allow you to collaborate with your colleagues.</p>
 
   <blockquote class="solution">
     <h2 id="solution-3">Solution</h2>
 
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add me.txt
+    <pre class="bash"><code>$ git add me.txt
 $ git commit -m "Updated Vlad's bio." --author="Frank N. Stein &lt;franky@monster.com&gt;"
 </code></pre>
-    </div>
-    <div class="output highlighter-rouge"><pre class="highlight"><code>[master 4162a51] Updated Vlad's bio.
+    <pre class="output"><code>[master 4162a51] Updated Vlad's bio.
 Author: Frank N. Stein &lt;franky@monster.com&gt;
 1 file changed, 2 insertions(+), 2 deletions(-)
 
@@ -907,7 +838,6 @@ Commit: Vlad Dracula &lt;vlad@tran.sylvan.ia&gt;
 
 Vlad's initial bio.
 </code></pre>
-    </div>
   </blockquote>
 </blockquote>
 
@@ -916,16 +846,16 @@ Vlad's initial bio.
   <h2>Key Points</h2>
   <ul>
     
-    <li><p><code class="highlighter-rouge">git status</code> shows the status of a repository.</p>
+    <li><p><code>git status</code> shows the status of a repository.</p>
 </li>
     
     <li><p>Files can be stored in a project’s working directory (which users see), the staging area (where the next commit is being built up) and the local repository (where commits are permanently recorded).</p>
 </li>
     
-    <li><p><code class="highlighter-rouge">git add</code> puts files in the staging area.</p>
+    <li><p><code>git add</code> puts files in the staging area.</p>
 </li>
     
-    <li><p><code class="highlighter-rouge">git commit</code> saves the staged content as a new commit in the local repository.</p>
+    <li><p><code>git commit</code> saves the staged content as a new commit in the local repository.</p>
 </li>
     
     <li><p>Always write a log message when committing changes.</p>

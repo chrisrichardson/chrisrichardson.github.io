@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2017-12-07 13:49:56 +0000">
+    <meta http-equiv="last-modified" content="2019-05-09 12:34:32 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -206,23 +206,22 @@ services like <a href="http://github.com">GitHub</a>, <a href="http://bitbucket.
 with the world. Create an account on
 <a href="https://bitbucket.org">bitbucket.org</a>. Bitbucket have an academic
 programme, which allows you to have unlimited private repositories. If
-you use an <code class="highlighter-rouge">.ac.uk</code> email address to sign up, you will automatically
+you use an <code>.ac.uk</code> email address to sign up, you will automatically
 get this feature.</p>
 
 <p>Log in to Bitbucket, then click on the menu drop-down “Repositories” and
-create a new repository called <code class="highlighter-rouge">cocktails</code>:</p>
+create a new repository called <code>cocktails</code>:</p>
 
 <p><img src="../fig/bitbucket-new-repo.png" alt="Creating a Repository" /></p>
 
 <p>This effectively does the following on Bitbucket’s servers:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ mkdir cocktails
+<pre class="bash"><code>$ mkdir cocktails
 $ cd cocktails
 $ git init
 </code></pre>
-</div>
 
-<p>Our local repository still contains our earlier work on <code class="highlighter-rouge">margherita.md</code>, but the
+<p>Our local repository still contains our earlier work on <code>margherita.md</code>, but the
 remote repository on bitbucket doesn’t contain any files yet.</p>
 
 <p><img src="../fig/git-freshly-made-bitbucket-repo.png" alt="New Repository" /></p>
@@ -241,12 +240,11 @@ repository to the website. However, we will change the
 authentication from SSH to HTTPS, as it is easier to work with for
 now. Use a pattern like this (replacing vlad with your bitbucket username).</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>git remote add origin https://vlad@bitbucket.org/vlad/cocktails.git
+<pre class="bash"><code>git remote add origin https://vlad@bitbucket.org/vlad/cocktails.git
 </code></pre>
-</div>
 
 <p>Make sure to use the URL for your repository rather than Vlad’s: the only
-difference should be your username instead of <code class="highlighter-rouge">vlad</code>.</p>
+difference should be your username instead of <code>vlad</code>.</p>
 
 <blockquote class="callout">
   <h2 id="https-vs-ssh">HTTPS vs. SSH</h2>
@@ -260,32 +258,29 @@ and <a href="https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/">GitLab
 (this one has a screencast).</p>
 </blockquote>
 
-<p>We can check that the command has worked by running <code class="highlighter-rouge">git remote -v</code>:</p>
+<p>We can check that the command has worked by running <code>git remote -v</code>:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git remote -v
+<pre class="bash"><code>$ git remote -v
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>origin   https://bitbucket.org/vlad/cocktails.git (push)
+<pre class="output"><code>origin   https://bitbucket.org/vlad/cocktails.git (push)
 origin   https://bitbucket.org/vlad/cocktails.git (fetch)
 </code></pre>
-</div>
 
-<p>The name <code class="highlighter-rouge">origin</code> is a local nickname for your remote repository: we could use
-something else if we wanted to, but <code class="highlighter-rouge">origin</code> is the default.</p>
+<p>The name <code>origin</code> is a local nickname for your remote repository: we could use
+something else if we wanted to, but <code>origin</code> is the default.</p>
 
-<p>Once the nickname <code class="highlighter-rouge">origin</code> is set up, this command will push the changes from
+<p>Once the nickname <code>origin</code> is set up, this command will push the changes from
 our local repository to the repository on bitbucket:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git push -u origin master
+<pre class="bash"><code>$ git push -u origin master
 </code></pre>
-</div>
 
 <p>By adding the “-u” option we connect the “upstream” tag “origin” with
 the repository so you don’t have to always specify “origin” every time you
 do “git push”. It is now the default.</p>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>Counting objects: 9, done.
+<pre class="output"><code>Counting objects: 9, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (6/6), done.
 Writing objects: 100% (9/9), 821 bytes, done.
@@ -294,28 +289,26 @@ To https://bitbucket.org/vlad/cocktails
  * [new branch]      master -&gt; master
 Branch master set up to track remote branch master from origin.
 </code></pre>
-</div>
 
 <blockquote class="callout">
   <h2 id="password-managers">Password Managers</h2>
 
-  <p>If your operating system has a password manager configured, <code class="highlighter-rouge">git push</code> will
+  <p>If your operating system has a password manager configured, <code>git push</code> will
 try to use it when it needs your username and password.  For example, this
 is the default behavior for Git Bash on Windows. If you want to type your
 username and password at the terminal instead of using a password manager,
 type:</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ unset SSH_ASKPASS
+  <pre class="bash"><code>$ unset SSH_ASKPASS
 </code></pre>
-  </div>
 
-  <p>in the terminal, before you run <code class="highlighter-rouge">git push</code>.  Despite the name, <a href="http://git-scm.com/docs/gitcredentials#_requesting_credentials">git uses
-<code class="highlighter-rouge">SSH_ASKPASS</code> for all credential
+  <p>in the terminal, before you run <code>git push</code>.  Despite the name, <a href="http://git-scm.com/docs/gitcredentials#_requesting_credentials">git uses
+<code>SSH_ASKPASS</code> for all credential
 entry</a>, so
-you may want to unset <code class="highlighter-rouge">SSH_ASKPASS</code> whether you are using git via SSH or
+you may want to unset <code>SSH_ASKPASS</code> whether you are using git via SSH or
 https.</p>
 
-  <p>You may also want to add <code class="highlighter-rouge">unset SSH_ASKPASS</code> at the end of your <code class="highlighter-rouge">~/.bashrc</code>
+  <p>You may also want to add <code>unset SSH_ASKPASS</code> at the end of your <code>~/.bashrc</code>
 to make git default to using the terminal for usernames and passwords.</p>
 </blockquote>
 
@@ -325,15 +318,13 @@ to make git default to using the terminal for usernames and passwords.</p>
 
 <p>We can pull changes from the remote repository to the local one as well:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git pull origin master
+<pre class="bash"><code>$ git pull origin master
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>From https://bitbucket.org/vlad/cocktails
+<pre class="output"><code>From https://bitbucket.org/vlad/cocktails
  * branch            master     -&gt; FETCH_HEAD
 Already up-to-date.
 </code></pre>
-</div>
 
 <p>Pulling has no effect in this case because the two repositories are already
 synchronized.  If someone else had pushed some changes to the repository on
@@ -341,17 +332,15 @@ bitbucket, though, this command would download them to our local repository.</p>
 
 <h2 id="bitbucket-gui">bitbucket GUI</h2>
 
-<p>Browse to your <code class="highlighter-rouge">cocktails</code> repository on bitbucket.</p>
-<ul>
-  <li>Try clicking on the ‘Source’ button on the left. You can use this to
-browse all the files in your repository. By using the dropdown menu
-with the git hash (e.g. d69e7a9) you can choose which version of the
-file to view.</li>
-  <li>Now look at the ‘Commits’ button. This shows a graphical
-representation of what you would see with <code class="highlighter-rouge">git log</code>. Again the git
-commit hashes are shown, and if you click on one, it will give you
-the <code class="highlighter-rouge">git diff</code> between the two neighbouring versions.</li>
-</ul>
+<p>Browse to your <code>cocktails</code> repository on bitbucket.
+ * Try clicking on the ‘Source’ button on the left. You can use this to
+   browse all the files in your repository. By using the dropdown menu
+   with the git hash (e.g. d69e7a9) you can choose which version of the
+   file to view.
+ * Now look at the ‘Commits’ button. This shows a graphical
+   representation of what you would see with <code>git log</code>. Again the git
+   commit hashes are shown, and if you click on one, it will give you
+   the <code>git diff</code> between the two neighbouring versions.</p>
 
 <blockquote class="challenge">
   <h2 id="push-vs-commit">Push vs. Commit</h2>
@@ -367,17 +356,16 @@ How is “git push” different from “git commit”?</p>
 remote URL. This exercise is about how to fix this kind of issue.
 First start by adding a remote with an invalid URL:</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>git remote add broken https://bitbucket.org/this/url/is/invalid
+  <pre class="bash"><code>git remote add broken https://bitbucket.org/this/url/is/invalid
 </code></pre>
-  </div>
 
   <p>Do you get an error when adding the remote? Can you think of a
 command that would make it obvious that your remote URL was not
-valid?</p>
-  <div class="highlighter-rouge"><pre class="highlight"><code>git push broken master
-</code></pre>
-  </div>
-  <p>Can you figure out how to fix the URL (tip: use <code class="highlighter-rouge">git remote
+valid?
+~~~
+git push broken master
+~~~
+Can you figure out how to fix the URL (tip: use <code>git remote
 -h</code>)? Don’t forget to clean up and remove this remote once you are
 done with this exercise.</p>
 </blockquote>
@@ -401,10 +389,10 @@ effect will this have on your repository?</p>
     <li><p>Use the HTTPS protocol to connect to remote repositories until you have learned how to set up SSH.</p>
 </li>
     
-    <li><p><code class="highlighter-rouge">git push</code> copies changes from a local repository to a remote repository.</p>
+    <li><p><code>git push</code> copies changes from a local repository to a remote repository.</p>
 </li>
     
-    <li><p><code class="highlighter-rouge">git pull</code> copies changes from a remote repository to a local repository.</p>
+    <li><p><code>git pull</code> copies changes from a remote repository to a local repository.</p>
 </li>
     
   </ul>

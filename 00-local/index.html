@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2017-12-07 13:49:56 +0000">
+    <meta http-equiv="last-modified" content="2019-05-09 12:34:32 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -189,27 +189,26 @@
 
 </blockquote>
 
-<h2 id="welcome"><a href="../Welcome.pdf">Welcome</a></h2>
+<h2 id="welcomewelcomepdf"><a href="../Welcome.pdf">Welcome</a></h2>
 
-<h2 id="using-the-uis-ds-linux-machines">Using the UIS DS Linux machines</h2>
+<h2 id="using-the-uis-mcs-linux-machines">Using the UIS MCS Linux machines</h2>
 
-<p>You should have a laptop which you can use on “eduroam” or “UniOfCam”
-wireless networks. In order to have a uniform environment, we are all
-going to use the UIS “linux.ds.cam.ac.uk” service.</p>
+<p>You should have a machine which is booted into Linux. In order to have a
+uniform environment, we are all going to use the MCS Linux service.</p>
 
 <p>It uses the same password as Raven. If you have been in the University
-for a while and not used DS, you may need to <a href="https://password.csx.cam.ac.uk">reset your
+for a while and not used MCS, you may need to <a href="https://password.csx.cam.ac.uk">reset your
 password</a>.
-Once you’ve logged in, you can open a terminal and start typing
-commands.</p>
+Once you’ve logged in, you can open a terminal (Activities/Terminal)
+and start typing commands.</p>
 
-<h3 id="using-a-laptop">Using a laptop</h3>
-<p>Use your own laptop to log into DS remotely using an SSH client
+<h3 id="using-your-own-laptop">Using your own laptop</h3>
+<p class="bash">You may also use your own laptop to log in remotely using an SSH client
 (e.g. <a href="https://mobaxterm.mobatek.net/">MobaXterm for Windows</a>).
-MacOS has a native ssh client, so you can just open a terminal and type:</p>
-<div class="bash highlighter-rouge"><pre class="highlight"><code>ssh crsid@linux.ds.cam.ac.uk
-</code></pre>
-</div>
+MacOS has a native ssh client, so you can just open a terminal and type:
+~~~
+ssh crsid@linux.ds.cam.ac.uk
+~~~</p>
 <p>You still need a valid password, of course.</p>
 
 <blockquote>
@@ -220,10 +219,9 @@ MacOS has a native ssh client, so you can just open a terminal and type:</p>
 
 <p>Everything today will be done from the command line. You don’t really
 need an in-depth knowledge of Unix to do this, but familiarity with
-the basics (<code class="highlighter-rouge">cd</code>, <code class="highlighter-rouge">ls</code>, <code class="highlighter-rouge">mkdir</code> etc.) is important. Additionally you need to be
-able to use an editor - I recommend using <code class="highlighter-rouge">nano</code> on the DS service
-(you can also use <code class="highlighter-rouge">vi</code> or <code class="highlighter-rouge">emacs</code>, and <code class="highlighter-rouge">gedit</code> if you have X11
-forwarding working).
+the basics (<code>cd</code>, <code>ls</code>, <code>mkdir</code> etc.) is important. Additionally you need to be
+able to use an editor - I recommend using <code>gedit</code> on the MCS service
+(you can also use <code>vi</code> or <code>emacs</code> if you are using a remote login).
 There are some graphical tools for Git available for
 Windows and Mac, but we won’t cover those today. Once you understand
 the principles of operation, you will find it easier to switch to a

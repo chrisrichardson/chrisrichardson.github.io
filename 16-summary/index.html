@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2017-12-07 13:49:56 +0000">
+    <meta http-equiv="last-modified" content="2019-05-09 12:34:32 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -198,54 +198,51 @@ reference page.</p>
 
 <h2 id="how-to-start-things-off">How to start things off</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git init
+<pre><code>git init
 git remote add origin https://git.repository.org/user/project
 </code></pre>
-</div>
 <p>You don’t have to use a “remote”, but it makes your repository much
-“safer” as you can <code class="highlighter-rouge">git push</code> it to the remote server. Even if you are
+“safer” as you can <code>git push</code> it to the remote server. Even if you are
 not collaborating with others, this is a useful backup. Remember to
 create the empty repository on the server first!</p>
 
 <p>or, if you want to copy an existing repository on a remote server:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://git.repository.org/user/project
+<pre><code>git clone https://git.repository.org/user/project
 </code></pre>
-</div>
 
 <h2 id="adding-and-editing-files">Adding and editing files</h2>
 
-<p>Now, you can add files, and do:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>git add filename.txt
-git commit -m "Added a file called filename.txt"
-</code></pre>
-</div>
+<p>Now, you can add files, and do:
+~~~
+git add filename.txt
+git commit -m “Added a file called filename.txt”
+~~~</p>
 
 <p>A common mistake is to create a new file, and forget to add it to the
 repository. You can always check how things are going with:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git status
+<pre><code>git status
 </code></pre>
-</div>
 
-<p>If you edit files, you can check the changes with</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>git diff
-</code></pre>
-</div>
+<p>If you edit files, you can check the changes with
+~~~
+git diff
+~~~</p>
 
-<p>and then add and commit the changes too:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>git add filename.txt
-git commit -m "Edited a file called filename.txt"
-</code></pre>
-</div>
+<p>and then add and commit the changes too:
+~~~
+git add filename.txt
+git commit -m “Edited a file called filename.txt”
+~~~</p>
 
 <h2 id="checking-what-you-have-done">Checking what you have done</h2>
 
-<p>You might want to look at the history:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>git log
-</code></pre>
-</div>
-<p>Note that there are lots of useful options to git log which you can
+<p>You might want to look at the history:
+~~~
+git log
+~~~
+Note that there are lots of useful options to git log which you can
 explore.</p>
 
 <h2 id="working-with-a-remote">Working with a remote</h2>
@@ -253,45 +250,44 @@ explore.</p>
 <p>Once up and running with a remote server, you might collaborate with
 others. In which case, you should probably do this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git pull origin master
+<pre><code>git pull origin master
 </code></pre>
-</div>
 <p>before doing anything else
-and</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>git push origin master
-</code></pre>
-</div>
-<p>when you have finished. A typical session would look like this:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>git pull origin master
+and
+~~~
+git push origin master
+~~~
+when you have finished. A typical session would look like this:
+~~~
+git pull origin master
 # Edit files
 git add filename.txt
-git commit -m "Edited a file"
+git commit -m “Edited a file”
 git push origin master
-</code></pre>
-</div>
+~~~</p>
 
 <h2 id="renaming-deleting-resetting">Renaming, deleting, resetting</h2>
 
-<p>If you need to rename or delete files, try to use <code class="highlighter-rouge">git mv</code> and <code class="highlighter-rouge">git
-rm</code> instead of <code class="highlighter-rouge">mv</code> and <code class="highlighter-rouge">rm</code>. It makes it easier for git to follow.</p>
+<p>If you need to rename or delete files, try to use <code>git mv</code> and <code>git
+rm</code> instead of <code>mv</code> and <code>rm</code>. It makes it easier for git to follow.</p>
 
-<p>Sometimes, things do get messed up. One useful command is:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>git clean -fdx
-</code></pre>
-</div>
+<p>Sometimes, things do get messed up. One useful command is:
+~~~
+git clean -fdx
+~~~</p>
 
 <p>which essentially cleans out any untracked files in your repository,
-and resets everything to the origin state. It is somewhat similar to:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>rm -rf *
+and resets everything to the origin state. It is somewhat similar to:
+~~~
+rm -rf *
 git clone https://git.repository.org/user/repo
-</code></pre>
-</div>
+~~~</p>
 
 <p>i.e. delete everything locally, and copy again from the server
 (assuming you are using one). With the web interface, it is always
 possible to check the state of the server files before you do this.</p>
 
-<p>Finally, use the <code class="highlighter-rouge">git help</code> command to get help, and you will also
+<p>Finally, use the <code>git help</code> command to get help, and you will also
 find tons of advice on git online with google and stackexchange.</p>
 
 

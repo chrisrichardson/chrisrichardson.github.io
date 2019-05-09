@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2017-12-07 13:49:56 +0000">
+    <meta http-equiv="last-modified" content="2019-05-09 12:34:32 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -197,18 +197,16 @@ like backup files created by our editor
 or intermediate files created during data analysis.
 Let’s create a few dummy files:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ mkdir results
+<pre class="bash"><code>$ mkdir results
 $ touch a.dat b.dat c.dat results/a.out results/b.out
 </code></pre>
-</div>
 
 <p>and see what Git says:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git status
+<pre class="bash"><code>$ git status
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>On branch master
+<pre class="output"><code>On branch master
 Untracked files:
   (use "git add &lt;file&gt;..." to include in what will be committed)
 
@@ -218,85 +216,75 @@ Untracked files:
 	results/
 nothing added to commit but untracked files present (use "git add" to track)
 </code></pre>
-</div>
 
 <p>Putting these files under version control would be a waste of disk space.
 What’s worse,
 having them all listed could distract us from changes that actually matter,
 so let’s tell Git to ignore them.</p>
 
-<p>We do this by creating a file in the root directory of our project called <code class="highlighter-rouge">.gitignore</code>:</p>
+<p>We do this by creating a file in the root directory of our project called <code>.gitignore</code>:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ gedit .gitignore
+<pre class="bash"><code>$ gedit .gitignore
 $ cat .gitignore
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>*.dat
+<pre class="output"><code>*.dat
 results/
 </code></pre>
-</div>
 
-<p>These patterns tell Git to ignore any file whose name ends in <code class="highlighter-rouge">.dat</code>
-and everything in the <code class="highlighter-rouge">results</code> directory.
+<p>These patterns tell Git to ignore any file whose name ends in <code>.dat</code>
+and everything in the <code>results</code> directory.
 (If any of these files were already being tracked,
 Git would continue to track them.)</p>
 
 <p>Once we have created this file,
-the output of <code class="highlighter-rouge">git status</code> is much cleaner:</p>
+the output of <code>git status</code> is much cleaner:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git status
+<pre class="bash"><code>$ git status
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>On branch master
+<pre class="output"><code>On branch master
 Untracked files:
   (use "git add &lt;file&gt;..." to include in what will be committed)
 
 	.gitignore
 nothing added to commit but untracked files present (use "git add" to track)
 </code></pre>
-</div>
 
-<p>The only thing Git notices now is the newly-created <code class="highlighter-rouge">.gitignore</code> file.
+<p>The only thing Git notices now is the newly-created <code>.gitignore</code> file.
 You might think we wouldn’t want to track it,
 but everyone we’re sharing our repository with will probably want to ignore
 the same things that we’re ignoring.
-Let’s add and commit <code class="highlighter-rouge">.gitignore</code>:</p>
+Let’s add and commit <code>.gitignore</code>:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add .gitignore
+<pre class="bash"><code>$ git add .gitignore
 $ git commit -m "Add the ignore file"
 $ git status
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code># On branch master
+<pre class="output"><code># On branch master
 nothing to commit, working directory clean
 </code></pre>
-</div>
 
-<p>As a bonus, using <code class="highlighter-rouge">.gitignore</code> helps us avoid accidentally adding to the repository files that we don’t want to track:</p>
+<p>As a bonus, using <code>.gitignore</code> helps us avoid accidentally adding to the repository files that we don’t want to track:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git add a.dat
+<pre class="bash"><code>$ git add a.dat
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>The following paths are ignored by one of your .gitignore files:
+<pre class="output"><code>The following paths are ignored by one of your .gitignore files:
 a.dat
 Use -f if you really want to add them.
 </code></pre>
-</div>
 
 <p>If we really want to override our ignore settings,
-we can use <code class="highlighter-rouge">git add -f</code> to force Git to add something. For example,
-<code class="highlighter-rouge">git add -f a.dat</code>.
+we can use <code>git add -f</code> to force Git to add something. For example,
+<code>git add -f a.dat</code>.
 We can also always see the status of ignored files if we want:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git status --ignored
+<pre class="bash"><code>$ git status --ignored
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>On branch master
+<pre class="output"><code>On branch master
 Ignored files:
  (use "git add -f &lt;file&gt;..." to include in what will be committed)
 
@@ -307,34 +295,32 @@ Ignored files:
 
 nothing to commit, working directory clean
 </code></pre>
-</div>
 
 <blockquote class="challenge">
   <h2 id="ignoring-nested-files">Ignoring Nested Files</h2>
 
   <p>Given a directory structure that looks like:</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>results/data
+  <pre class="bash"><code>results/data
 results/plots
 </code></pre>
-  </div>
 
-  <p>How would you ignore only <code class="highlighter-rouge">results/plots</code> and not <code class="highlighter-rouge">results/data</code>?</p>
+  <p>How would you ignore only <code>results/plots</code> and not <code>results/data</code>?</p>
 
   <blockquote class="solution">
     <h2 id="solution">Solution</h2>
 
     <p>As with most programming issues, there are a few ways that you
 could solve this. If you only want to ignore the contents of
-<code class="highlighter-rouge">results/plots</code>, you can change your <code class="highlighter-rouge">.gitignore</code> to ignore
-only the <code class="highlighter-rouge">/plots/</code> subfolder by adding the following line to
+<code>results/plots</code>, you can change your <code>.gitignore</code> to ignore
+only the <code>/plots/</code> subfolder by adding the following line to
 your .gitignore:</p>
 
-    <p><code class="highlighter-rouge">results/plots/</code></p>
+    <p><code>results/plots/</code></p>
 
-    <p>If, instead, you want to ignore everything in <code class="highlighter-rouge">/results/</code>, but wanted to track
-<code class="highlighter-rouge">results/data</code>, then you can add <code class="highlighter-rouge">results/</code> to your .gitignore
-and create an exception for the <code class="highlighter-rouge">results/data/</code> folder.
+    <p>If, instead, you want to ignore everything in <code>/results/</code>, but wanted to track
+<code>results/data</code>, then you can add <code>results/</code> to your .gitignore
+and create an exception for the <code>results/data/</code> folder.
 The next challenge will cover this type of solution.</p>
 
   </blockquote>
@@ -343,19 +329,18 @@ The next challenge will cover this type of solution.</p>
 <blockquote class="challenge">
   <h2 id="including-specific-files">Including Specific Files</h2>
 
-  <p>How would you ignore all <code class="highlighter-rouge">.data</code> files in your root directory except for
-<code class="highlighter-rouge">final.data</code>?
-Hint: Find out what <code class="highlighter-rouge">!</code> (the exclamation point operator) does</p>
+  <p>How would you ignore all <code>.data</code> files in your root directory except for
+<code>final.data</code>?
+Hint: Find out what <code>!</code> (the exclamation point operator) does</p>
 
   <blockquote class="solution">
     <h2 id="solution-1">Solution</h2>
 
     <p>You would add the following two lines to your .gitignore:</p>
 
-    <div class="output highlighter-rouge"><pre class="highlight"><code>*.data           # ignore all data files
+    <pre class="output"><code>*.data           # ignore all data files
 !final.data      # except final.data
 </code></pre>
-    </div>
 
     <p>The exclamation point operator will include a previously excluded entry.</p>
   </blockquote>
@@ -366,43 +351,41 @@ Hint: Find out what <code class="highlighter-rouge">!</code> (the exclamation po
 
   <p>Given a directory structure that looks like:</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>results/data/position/gps/a.data
+  <pre class="bash"><code>results/data/position/gps/a.data
 results/data/position/gps/b.data
 results/data/position/gps/c.data
 results/data/position/gps/info.txt
 results/plots
 </code></pre>
-  </div>
 
-  <p>What’s the shortest <code class="highlighter-rouge">.gitignore</code> rule you could write to ignore all <code class="highlighter-rouge">.data</code>
-files in <code class="highlighter-rouge">result/data/position/gps</code>? Do not ignore the <code class="highlighter-rouge">info.txt</code>.</p>
+  <p>What’s the shortest <code>.gitignore</code> rule you could write to ignore all <code>.data</code>
+files in <code>result/data/position/gps</code>? Do not ignore the <code>info.txt</code>.</p>
 
   <blockquote class="solution">
     <h2 id="solution-2">Solution</h2>
 
-    <p>Appending <code class="highlighter-rouge">results/data/position/gps/*.data</code> will match every file in <code class="highlighter-rouge">results/data/position/gps</code> that ends with <code class="highlighter-rouge">.data</code>.
-The file <code class="highlighter-rouge">results/data/position/gps/info.txt</code> will not be ignored.</p>
+    <p>Appending <code>results/data/position/gps/*.data</code> will match every file in <code>results/data/position/gps</code> that ends with <code>.data</code>.
+The file <code>results/data/position/gps/info.txt</code> will not be ignored.</p>
   </blockquote>
 </blockquote>
 
 <blockquote class="challenge">
   <h2 id="the-order-of-rules">The Order of Rules</h2>
 
-  <p>Given a <code class="highlighter-rouge">.gitignore</code> file with the following contents:</p>
+  <p>Given a <code>.gitignore</code> file with the following contents:</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>*.data
+  <pre class="bash"><code>*.data
 !*.data
 </code></pre>
-  </div>
 
   <p>What will be the result?</p>
 
   <blockquote class="solution">
     <h2 id="solution-3">Solution</h2>
 
-    <p>The <code class="highlighter-rouge">!</code> modifier will negate an entry from a previously defined ignore pattern.
-Because the <code class="highlighter-rouge">!*.data</code> entry negates all of the previous <code class="highlighter-rouge">.data</code> files in the <code class="highlighter-rouge">.gitignore</code>,
-none of them will be ignored, and all <code class="highlighter-rouge">.data</code> files will be tracked.</p>
+    <p>The <code>!</code> modifier will negate an entry from a previously defined ignore pattern.
+Because the <code>!*.data</code> entry negates all of the previous <code>.data</code> files in the <code>.gitignore</code>,
+none of them will be ignored, and all <code>.data</code> files will be tracked.</p>
 
   </blockquote>
 </blockquote>
@@ -410,21 +393,21 @@ none of them will be ignored, and all <code class="highlighter-rouge">.data</cod
 <blockquote class="challenge">
   <h2 id="log-files">Log Files</h2>
 
-  <p>You wrote a script that creates many intermediate log-files of the form <code class="highlighter-rouge">log_01</code>, <code class="highlighter-rouge">log_02</code>, <code class="highlighter-rouge">log_03</code>, etc.
-You want to keep them but you do not want to track them through <code class="highlighter-rouge">git</code>.</p>
+  <p>You wrote a script that creates many intermediate log-files of the form <code>log_01</code>, <code>log_02</code>, <code>log_03</code>, etc.
+You want to keep them but you do not want to track them through <code>git</code>.</p>
 
   <ol>
     <li>
-      <p>Write <strong>one</strong> <code class="highlighter-rouge">.gitignore</code> entry that excludes files of the form <code class="highlighter-rouge">log_01</code>, <code class="highlighter-rouge">log_02</code>, etc.</p>
+      <p>Write <strong>one</strong> <code>.gitignore</code> entry that excludes files of the form <code>log_01</code>, <code>log_02</code>, etc.</p>
     </li>
     <li>
-      <p>Test your “ignore pattern” by creating some dummy files of the form <code class="highlighter-rouge">log_01</code>, etc.</p>
+      <p>Test your “ignore pattern” by creating some dummy files of the form <code>log_01</code>, etc.</p>
     </li>
     <li>
-      <p>You find that the file <code class="highlighter-rouge">log_01</code> is very important after all, add it to the tracked files without changing the <code class="highlighter-rouge">.gitignore</code> again.</p>
+      <p>You find that the file <code>log_01</code> is very important after all, add it to the tracked files without changing the <code>.gitignore</code> again.</p>
     </li>
     <li>
-      <p>Discuss with your neighbor what other types of files could reside in your directory that you do not want to track and thus would exclude via <code class="highlighter-rouge">.gitignore</code>.</p>
+      <p>Discuss with your neighbor what other types of files could reside in your directory that you do not want to track and thus would exclude via <code>.gitignore</code>.</p>
     </li>
   </ol>
 
@@ -432,8 +415,8 @@ You want to keep them but you do not want to track them through <code class="hig
     <h2 id="solution-4">Solution</h2>
 
     <ol>
-      <li>append either <code class="highlighter-rouge">log_*</code>  or  <code class="highlighter-rouge">log*</code>  as a new entry in your .gitignore</li>
-      <li>track <code class="highlighter-rouge">log_01</code> using   <code class="highlighter-rouge">git add -f log_01</code></li>
+      <li>append either <code>log_*</code>  or  <code>log*</code>  as a new entry in your .gitignore</li>
+      <li>track <code>log_01</code> using   <code>git add -f log_01</code></li>
     </ol>
   </blockquote>
 </blockquote>
@@ -442,7 +425,7 @@ You want to keep them but you do not want to track them through <code class="hig
   <h2>Key Points</h2>
   <ul>
     
-    <li><p>The <code class="highlighter-rouge">.gitignore</code> file tells Git what files to ignore.</p>
+    <li><p>The <code>.gitignore</code> file tells Git what files to ignore.</p>
 </li>
     
   </ul>

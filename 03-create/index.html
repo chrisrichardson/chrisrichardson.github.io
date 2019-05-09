@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2017-12-07 13:49:56 +0000">
+    <meta http-equiv="last-modified" content="2019-05-09 12:34:32 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -190,37 +190,34 @@
 </blockquote>
 
 <p>Once Git is configured, we can start using it.
-Let’s create a directory for our work and then move into that directory:</p>
+Let’s create a directory for our work and then move into that directory.
+For today, we’ll be working on a Python program which can calculate “pi”.
+Let’s call the project “picalc”.</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ mkdir cocktails
-$ cd cocktails
+<pre class="bash"><code>$ mkdir picalc
+$ cd picalc
 </code></pre>
-</div>
 
-<p>Then we tell Git to make <code class="highlighter-rouge">cocktails</code> a <a href="../reference/#repository">repository</a>
+<p>Then we tell Git to make <code>picalc</code> a <a href="../reference/#repository">repository</a>
 — a place where Git can store versions of our files:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git init
+<pre class="bash"><code>$ git init
 </code></pre>
-</div>
 
-<p>If we use <code class="highlighter-rouge">ls</code> to show the directory’s contents,
+<p>If we use <code>ls</code> to show the directory’s contents,
 it appears that nothing has changed:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ ls
+<pre class="bash"><code>$ ls
 </code></pre>
-</div>
 
-<p>But if we add the <code class="highlighter-rouge">-a</code> flag to show everything,
-we can see that Git has created a hidden directory within <code class="highlighter-rouge">cocktails</code> called <code class="highlighter-rouge">.git</code>:</p>
+<p>But if we add the <code>-a</code> flag to show everything,
+we can see that Git has created a hidden directory within <code>picalc</code> called <code>.git</code>:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ ls -a
+<pre class="bash"><code>$ ls -a
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code>.	..	.git
+<pre class="output"><code>.	..	.git
 </code></pre>
-</div>
 
 <p>Git stores information about the project in this special sub-directory.
 If we ever delete it, we will lose the project’s history.</p>
@@ -228,37 +225,34 @@ If we ever delete it, we will lose the project’s history.</p>
 <p>We can check that everything is set up correctly
 by asking Git to tell us the status of our project:</p>
 
-<div class="bash highlighter-rouge"><pre class="highlight"><code>$ git status
+<pre class="bash"><code>$ git status
 </code></pre>
-</div>
 
-<div class="output highlighter-rouge"><pre class="highlight"><code># On branch master
+<pre class="output"><code># On branch master
 #
 # Initial commit
 #
 nothing to commit (create/copy files and use "git add" to track)
 </code></pre>
-</div>
 
 <blockquote class="challenge">
   <h2 id="places-to-create-git-repositories">Places to Create Git Repositories</h2>
 
-  <p>Dracula starts a new project, <code class="highlighter-rouge">whiskey</code>, related to his <code class="highlighter-rouge">cocktails</code> project.
-Despite Wolfman’s concerns, he enters the following sequence of commands to
+  <p>Dracula starts a new project, <code>sphere_calc</code>, related to his <code>picalc</code> project.
+Despite his colleague’s concerns, he enters the following sequence of commands to
 create one Git repository inside another:</p>
 
-  <div class="bash highlighter-rouge"><pre class="highlight"><code>$ cd               # return to home directory
-$ mkdir cocktails  # make a new directory cocktails
-$ cd cocktails     # go into cocktails
-$ git init         # make the cocktails directory a Git repository
-$ mkdir whiskey    # make a sub-directory cocktails/whiskey
-$ cd whiskey       # go into cocktails/whiskey
-$ git init         # make the whiskey sub-directory a Git repository
+  <pre class="bash"><code>$ cd               # return to home directory
+$ mkdir picalc  # make a new directory picalc
+$ cd picalc     # go into picalc
+$ git init         # make the picalc directory a Git repository
+$ mkdir sphere_calc    # make a sub-directory picalc/sphere_calc
+$ cd sphere_calc       # go into picalc/sphere_calc
+$ git init         # make the sphere_calc sub-directory a Git repository
 </code></pre>
-  </div>
 
-  <p>Why is it a bad idea to do this? (Notice here that the <code class="highlighter-rouge">cocktails</code> project is now also tracking the entire <code class="highlighter-rouge">whiskey</code> repository.)
-How can Dracula undo his last <code class="highlighter-rouge">git init</code>?</p>
+  <p>Why is it a bad idea to do this? (Notice here that the <code>picalc</code> project is now also tracking the entire <code>sphere_calc</code> repository.)
+How can Dracula undo his last <code>git init</code>?</p>
 
   <blockquote class="solution">
     <h2 id="solution">Solution</h2>
@@ -267,50 +261,44 @@ How can Dracula undo his last <code class="highlighter-rouge">git init</code>?</
 directory of another: the outer repository will try to version-control
 the inner repository. Therefore, it’s best to create each new Git
 repository in a separate directory. To be sure that there is no conflicting
-repository in the directory, check the output of <code class="highlighter-rouge">git status</code>. If it looks
+repository in the directory, check the output of <code>git status</code>. If it looks
 like the following, you are good to go to create a new repository.</p>
 
     <p>repository as shown:</p>
 
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ git status
+    <pre class="bash"><code>$ git status
 </code></pre>
-    </div>
-    <div class="output highlighter-rouge"><pre class="highlight"><code>fatal: Not a git repository (or any of the parent directories): .git
+    <pre class="output"><code>fatal: Not a git repository (or any of the parent directories): .git
 </code></pre>
-    </div>
 
     <p>Note that we can track files in directories within a Git:</p>
 
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ touch glenlivet laphroaig    # create whiskey files
-$ cd ..                        # return to cocktails directory
-$ ls whiskey                   # list contents of the whiskey directory
-$ git add whiskey/*            # add all contents of cocktails/whiskey
-$ git status                   # show whiskey files in staging area
-$ git commit -m "add whiskey files"    # commit cocktails/whiskey to cocktails Git repository
+    <pre class="bash"><code>$ touch ball.py ovoid.py       # create some sphere_calc files
+$ cd ..                        # return to picalc directory
+$ ls sphere_calc               # list contents of the sphere_calc directory
+$ git add sphere_calc/*        # add all contents of picalc/sphere_calc
+$ git status                   # show sphere_calc files in staging area
+$ git commit -m "add sphere_calc files"    # commit picalc/sphere_calc to picalc Git repository
 </code></pre>
-    </div>
 
-    <p>Similarly, we can ignore (as discussed later) entire directories, such as the <code class="highlighter-rouge">whiskey</code> directory:</p>
+    <p>Similarly, we can ignore (as discussed later) entire directories, such as the <code>sphere_calc</code> directory:</p>
 
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ nano .gitignore # open the .gitignore file in the texteditor to add the whiskey directory
+    <pre class="bash"><code>$ nano .gitignore # open the .gitignore file in the texteditor to add the sphere_calc directory
 $ cat .gitignore # if you run cat afterwards, it should look like this:
 </code></pre>
-    </div>
 
-    <div class="output highlighter-rouge"><pre class="highlight"><code>whiskey
+    <pre class="output"><code>sphere_calc
 </code></pre>
-    </div>
 
-    <p>To recover from this little mistake, Dracula can just remove the <code class="highlighter-rouge">.git</code>
-folder in the whiskey subdirectory. To do so he can run the following command from inside the ‘whiskey’ directory:</p>
+    <p>To recover from this little mistake, Dracula can just remove the <code>.git</code>
+folder in the sphere_calc subdirectory. To do so he can run the following command from inside the ‘sphere_calc’ directory:</p>
 
-    <div class="bash highlighter-rouge"><pre class="highlight"><code>$ rm -rf .git
+    <pre class="bash"><code>$ rm -rf .git
 </code></pre>
-    </div>
 
     <p>But be careful! Running this command in the wrong directory, will remove
 the entire git-history of a project you might wanted to keep. Therefore, always check your current directory using the
-command <code class="highlighter-rouge">pwd</code>.</p>
+command <code>pwd</code>.</p>
   </blockquote>
 </blockquote>
 
@@ -318,7 +306,7 @@ command <code class="highlighter-rouge">pwd</code>.</p>
   <h2>Key Points</h2>
   <ul>
     
-    <li><p><code class="highlighter-rouge">git init</code> initializes a repository.</p>
+    <li><p><code>git init</code> initializes a repository.</p>
 </li>
     
   </ul>

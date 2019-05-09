@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2017-12-07 13:49:56 +0000">
+    <meta http-equiv="last-modified" content="2019-05-09 12:34:32 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -203,68 +203,61 @@ repository.</p>
 public repositories on github and bitbucket, and this is quite likely
 the first way you will really get to use revision control.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://bitbucket.org/chris_richardson/wallis_pi
+<pre><code>git clone https://bitbucket.org/chris_richardson/wallis_pi
 </code></pre>
-</div>
 
 <p>Remember, this will clone into a folder called “wallis_pi” and will automatically set the “origin” to point to https://bitbucket.org/chris_richardson/wallis_pi</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git remote -v
+<pre><code>git remote -v
 </code></pre>
-</div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>origin	https://github.com/chris_richardson/wallis_pi.git (fetch)
+<pre><code>origin	https://github.com/chris_richardson/wallis_pi.git (fetch)
 origin	https://github.com/chris_richardson/wallis_pi.git (push)
 </code></pre>
-</div>
 
 <p>Once you have made a copy of the repository, you can edit the files as usual.</p>
 
 <p>This is a Python project, which calculates the value of pi, using a
 rather inefficient formula. You can test out the project on
-<code class="highlighter-rouge">linux.ds.cam.ac.uk</code> by running <code class="highlighter-rouge">python3 pi.py</code>. The other file is
-<code class="highlighter-rouge">bitbucket-pipelines.yml</code> which runs a test every time a change is
+<code>linux.ds.cam.ac.uk</code> by running <code>python3 pi.py</code>. The other file is
+<code>bitbucket-pipelines.yml</code> which runs a test every time a change is
 made to the repository. Try changing the code, and see what effect
 it has on the test.</p>
 
 <p>Unless we have contacted the author we can’t push changes back to
 their repository. We could continue editing, and making any changes we
-want, doing <code class="highlighter-rouge">git add</code> and <code class="highlighter-rouge">git commit</code> as we go, but we can’t push any
+want, doing <code>git add</code> and <code>git commit</code> as we go, but we can’t push any
 changes back to “origin”.</p>
 
 <p>Let’s create another new private repo called “wallis_pi” on bitbucket, and
 push to that instead. We need to give it a local name for the
 push/pull location, e.g. “myfork”.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git remote add myfork https://your_name@bitbucket.org/your_name/wallis_pi
+<pre><code>git remote add myfork https://your_name@bitbucket.org/your_name/wallis_pi
 </code></pre>
-</div>
 
 <p>Replace “your_name” with your username.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git remote -v
+<pre><code>git remote -v
 </code></pre>
-</div>
 
 <p>Now we will see two possible locations, one the “origin” (which we can
 pull from but not push to), and the other is “myfork” which we have
 full access to:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>myfork	https://your_name@bitbucket.org/your_name/wallis_pi (fetch)
+<pre><code>myfork	https://your_name@bitbucket.org/your_name/wallis_pi (fetch)
 myfork	https://your_name@bitbucket.org/your_name/wallis_pi (push)
 origin	https://bitbucket.org/chris_richardson/wallis_pi.git (fetch)
 origin	https://bitbucket.org/chris_richardson/wallis_pi.git (push)
 </code></pre>
-</div>
 
 <p>Let’s push back to “myfork”</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git push myfork master
+<pre><code>git push myfork master
 </code></pre>
-</div>
 
-<p>You can continue changing the files, doing <code class="highlighter-rouge">git add</code>, <code class="highlighter-rouge">git commit</code> and
-<code class="highlighter-rouge">git push myfork master</code> as much as you like. Try pushing to <code class="highlighter-rouge">origin
+<p>You can continue changing the files, doing <code>git add</code>, <code>git commit</code> and
+<code>git push myfork master</code> as much as you like. Try pushing to <code>origin
 master</code> and see what happens. Take a look at the commits on the
 bitbucket website.</p>
 
@@ -272,7 +265,7 @@ bitbucket website.</p>
   <h2>Key Points</h2>
   <ul>
     
-    <li><p>We can <code class="highlighter-rouge">git clone</code> any remote repository we have access to, and make our own online copy.</p>
+    <li><p>We can <code>git clone</code> any remote repository we have access to, and make our own online copy.</p>
 </li>
     
   </ul>
