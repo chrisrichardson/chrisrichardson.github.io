@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2019-05-09 12:41:23 +0100">
+    <meta http-equiv="last-modified" content="2019-05-10 09:45:29 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -400,11 +400,10 @@ of the file and the most recently saved version:</p>
 index eafc011..77e5f25 100644
 --- a/loop.py
 +++ b/loop.py
-@@ -3,3 +3,4 @@
- 1. Tequilia
- 2. Triple Sec
- 3. Lime Juice
-+4. Ice
+@@ -1,2 +1,3 @@
++# Written by Chris
+ for i in range(1, 100):
+      print(i)
 </code></pre>
 
 <p>The output is cryptic because
@@ -427,8 +426,7 @@ the <code>+</code> marker in the first column shows where we added a line.</li>
 
 <p>After reviewing our change, it’s time to commit it:</p>
 
-<pre class="bash"><code>$ git commit -m "Add some ice"
-$ git status
+<pre class="bash"><code>$ git commit -m "Add a comment"
 </code></pre>
 
 <pre class="output"><code>On branch master
@@ -446,10 +444,10 @@ Git won’t commit because we didn’t use <code>git add</code> first.
 Let’s fix that:</p>
 
 <pre class="bash"><code>$ git add loop.py
-$ git commit -m "Add some ice"
+$ git commit -m "Add a comment"
 </code></pre>
 
-<pre class="output"><code>[master 34961b1] Add some ice
+<pre class="output"><code>[master 34961b1] Add a comment
  1 file changed, 1 insertion(+)
 </code></pre>
 
@@ -504,15 +502,11 @@ we’ll add a few more lines to the file:</p>
 $ cat loop.py
 </code></pre>
 
-<pre class="output"><code># Margherita
-## Ingredients
-1. Tequilia
-2. Triple Sec
-3. Lime Juice
-4. Ice
-
-## Method
-Chill glass, add ice, lime juice, triple sec and tequila
+<pre class="output"><code># Written by Chris
+a = 0.0
+for i in range(1, 100):
+    a = a + i
+    print(i, a)
 </code></pre>
 
 <pre class="bash"><code>$ git diff
@@ -522,17 +516,17 @@ Chill glass, add ice, lime juice, triple sec and tequila
 index 77e5f25..573eea0 100644
 --- a/loop.py
 +++ b/loop.py
-@@ -3,4 +3,7 @@
- 1. Tequilia
- 2. Triple Sec
- 3. Lime Juice
-+
-+## Method
-+Chill glass, add ice, lime juice, triple sec and tequila
+@@ -1,3 +1,5 @@
+ # Written by Chris
++a = 0.0
+ for i in range(1, 100):
+-    print(i)
++    a = a + i
++    print(i, a)
 </code></pre>
 
 <p>So far, so good:
-we’ve added some lines to the end of the file
+we’ve added some lines to the file
 (shown with a <code>+</code> in the first column).
 Now let’s put that change in the staging area
 and see what <code>git diff</code> reports:</p>
@@ -555,13 +549,13 @@ if we do this:</p>
 index 77e5f25..573eea0 100644
 --- a/loop.py
 +++ b/loop.py
-@@ -3,4 +3,7 @@
- 1. Tequilia
- 2. Triple Sec
- 3. Lime Juice
-+
-+## Method
-+Chill glass, add ice, lime juice, triple sec and tequila
+@@ -1,3 +1,5 @@
+ # Written by Chris
++a = 0.0
+ for i in range(1, 100):
+-    print(i)
++    a = a + i
++    print(i, a)
 </code></pre>
 
 <p>it shows us the difference between
@@ -569,11 +563,11 @@ the last committed change
 and what’s in the staging area.
 Let’s save our changes:</p>
 
-<pre class="bash"><code>$ git commit -m "Add a method"
+<pre class="bash"><code>$ git commit -m "Add up numbers in 'a'"
 </code></pre>
 
-<pre class="output"><code>[master 941ecf6] Add a method
- 1 file changed, 3 insertions(+)
+<pre class="output"><code>[master 941ecf6] Add up numbers in 'a'
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 </code></pre>
 
 <p>check our status:</p>
@@ -594,19 +588,20 @@ nothing to commit, working directory clean
 Author: Chris Richardson &lt;chris@bpi.cam.ac.uk&gt;
 Date:   Tue Dec 5 10:03:18 2017 +0000
 
-    Add a method
+    Add up numbers in 'a'
 
 commit 171e6b2d2f52fe45f8a353536d22c189125229dc
 Author: Chris Richardson &lt;chris@bpi.cam.ac.uk&gt;
 Date:   Tue Dec 5 10:00:09 2017 +0000
 
-    Add some ice
+    Add a comment
 
 commit 373fb4773ff2ab36416485bb5e86270d46ad415b
 Author: Chris Richardson &lt;chris@bpi.cam.ac.uk&gt;
 Date:   Tue Dec 5 09:53:58 2017 +0000
 
-    Start recipe for margherita
+    Start python program
+
 </code></pre>
 
 <blockquote class="callout">
@@ -641,7 +636,7 @@ from the last commit you can use</p>
 Author: Chris Richardson &lt;chris@bpi.cam.ac.uk&gt;
 Date:   Tue Dec 5 10:03:18 2017 +0000
 
-   Add a method
+   Add up numbers in 'a'
 </code></pre>
 
   <p>You can also reduce the quantity of information using the
@@ -649,9 +644,9 @@ Date:   Tue Dec 5 10:03:18 2017 +0000
 
   <pre class="bash"><code>$ git log --oneline
 </code></pre>
-  <pre class="output"><code>* 941ecf6 Add a method
-* 171e6b2 Add some ice
-* 373fb47 Start recipe for margherita
+  <pre class="output"><code>* 941ecf6 Add up numbers in 'a'
+* 171e6b2 Add a comment
+* 373fb47 Start python program
 </code></pre>
 
   <p>You can also combine the <code>--oneline</code> options with others. One useful
@@ -659,9 +654,9 @@ combination is</p>
 
   <pre class="bash"><code>$ git log --oneline --graph --all --decorate
 </code></pre>
-  <pre class="output"><code>* 941ecf6 (HEAD -&gt; master) Add a method
-* 171e6b2 Add some ice
-* 373fb47 Start recipe for margherita
+  <pre class="output"><code>* 941ecf6 (HEAD -&gt; master) Add up numbers in 'a'
+* 171e6b2 Add a comment
+* 373fb47 Start python program
 </code></pre>
 </blockquote>
 
@@ -680,8 +675,8 @@ last commit made to <code>loop.py</code>?</p>
 
   <ol>
     <li>“Changes”</li>
-    <li>“Added line ‘Chill glass, add ice, lime juice, triple sec and tequila’ to loop.py”</li>
-    <li>“Add method for making margherita”</li>
+    <li>“Added line ‘a = a + i’ to loop.py”</li>
+    <li>“Add up numbers in ‘a’”</li>
   </ol>
 
   <blockquote class="solution">
@@ -736,9 +731,8 @@ to my local Git repository?</p>
 that you want to commit as a single snapshot.</p>
 
   <ol>
-    <li>Add some text to <code>loop.py</code> reorganising the method as a list.</li>
-    <li>Create a new file <code>manhattan.md</code> with your initial thoughts
-about a different cocktail (or something else of your choice).</li>
+    <li>Add some text to <code>loop.py</code> (e.g. another comment line).</li>
+    <li>Create a new file <code>example.py</code> with some different content of your choice.</li>
     <li>Add changes from both files to the staging area,
 and commit those changes.</li>
   </ol>
@@ -746,49 +740,42 @@ and commit those changes.</li>
   <blockquote class="solution">
     <h2 id="solution-2">Solution</h2>
 
-    <p class="bash">First we make our changes to the <code>loop.py</code> and <code>manhattan.md</code> files:
+    <p class="bash">First we make our changes to the <code>loop.py</code> and <code>example.py</code> files:
 ~~~
 $ nano loop.py
 $ cat loop.py
 ~~~</p>
-    <pre class="output"><code># Margherita
-## Ingredients
-1. Tequilia
-2. Triple Sec
-3. Lime Juice
-4. Ice
-
-## Method
-1. Chill glass
-2. Add ice
-3. Add lime juice
-4. Add triple sec
-5. Add tequila
-6. Mix
+    <pre class="output"><code># Written by Chris
+# December 2017
+a = 0.0
+for i in range(1, 100):
+    a = a + i
+    print(i, a)
 </code></pre>
-    <pre class="bash"><code>$ nano manhattan.md
-$ cat manhattan.md
+    <pre class="bash"><code>$ nano example.py
+$ cat example.py
 </code></pre>
-    <pre class="output"><code> # Manhattan
-## Ingredients
-Whiskey, vermouth, bitters
+    <pre class="output"><code># Written by Chris
+a = 2.0
+if (a &gt; 1.0):
+    print ("a is greater than 1")
 </code></pre>
     <p>Now you can add both files to the staging area. We can do that in one line:</p>
 
-    <pre class="bash"><code>$ git add loop.py manhattan.md
+    <pre class="bash"><code>$ git add loop.py example.py
 </code></pre>
     <p class="bash">Or with multiple commands:
 ~~~
 $ git add loop.py
-$ git add manhattan.md
+$ git add example.py
 ~~~</p>
     <p class="bash">Now the files are ready to commit. You can check that using <code>git status</code>. If you are ready to commit use:
 ~~~
-$ git commit -m “Updated Margherita and started on Manhattan”
+$ git commit -m “Updated loop.py and started new example code”
 ~~~</p>
     <pre class="output"><code>[master cc127c2]
-Updated Margherita and started on Manhattan
-2 files changed, 2 insertions(+)
+Updated loop.py and started new example code
+2 files changed, 5 insertions(+)
 </code></pre>
     <p>~~~</p>
   </blockquote>
