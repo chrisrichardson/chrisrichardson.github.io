@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2019-05-10 09:45:29 +0100">
+    <meta http-equiv="last-modified" content="2019-05-10 09:52:54 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -740,11 +740,11 @@ and commit those changes.</li>
   <blockquote class="solution">
     <h2 id="solution-2">Solution</h2>
 
-    <p class="bash">First we make our changes to the <code>loop.py</code> and <code>example.py</code> files:
-~~~
-$ nano loop.py
+    <p>First we make our changes to the <code>loop.py</code> and <code>example.py</code> files:</p>
+
+    <pre class="bash"><code>$ nano loop.py
 $ cat loop.py
-~~~</p>
+</code></pre>
     <pre class="output"><code># Written by Chris
 # December 2017
 a = 0.0
@@ -764,11 +764,11 @@ if (a &gt; 1.0):
 
     <pre class="bash"><code>$ git add loop.py example.py
 </code></pre>
-    <p class="bash">Or with multiple commands:
-~~~
-$ git add loop.py
+    <p>Or with multiple commands:</p>
+
+    <pre class="bash"><code>$ git add loop.py
 $ git add example.py
-~~~</p>
+</code></pre>
     <p class="bash">Now the files are ready to commit. You can check that using <code>git status</code>. If you are ready to commit use:
 ~~~
 $ git commit -m “Updated loop.py and started new example code”
