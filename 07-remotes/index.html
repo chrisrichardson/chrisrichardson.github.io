@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2019-05-10 11:41:52 +0100">
+    <meta http-equiv="last-modified" content="2019-05-10 11:58:24 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -364,14 +364,18 @@ GitHub, though, this command would download them to our local repository.</p>
 <p>Browse to your <code>picalc</code> repository on GitHub.</p>
 
 <ul>
-  <li>Try clicking on the ‘Source’ button on the left. You can use this to
- browse all the files in your repository. By using the dropdown menu
- with the git hash (e.g. d69e7a9) you can choose which version of the
- file to view.</li>
-  <li>Now look at the ‘Commits’ button. This shows a graphical
-representation of what you would see with <code>git log</code>. Again the git
-commit hashes are shown, and if you click on one, it will give you
-the <code>git diff</code> between the two neighbouring versions.</li>
+  <li>
+    <p>Try clicking on the ‘Code’ tab at top left. You can use this to
+ browse all the files in your repository. There are a lot of other
+ advanced tabs, but you probably just want to stick to “Code” for now.</p>
+  </li>
+  <li>
+    <p>Now look at the ‘Commits’ button (it probably just says “1 commit”
+and a clockface). This shows a graphical representation of what you
+would see with <code>git log</code>. The git commit hashes are shown, and
+if you click on one, it will give you the <code>git diff</code> between the
+two neighbouring versions.</p>
+  </li>
 </ul>
 
 <blockquote class="challenge">
@@ -380,6 +384,24 @@ the <code>git diff</code> between the two neighbouring versions.</li>
   <p>In this lesson, we introduced the “git push” command.
 How is “git push” different from “git commit”?</p>
 </blockquote>
+
+<h3 id="adding-more-commits">Adding more commits</h3>
+<p>Let’s add some more commits to the repository. Edit <code>picalc.py</code> and
+add some more lines, e.g. change it to:</p>
+
+<pre><code>a = 2.0
+nmax = 100000
+for n in range(1, nmax):
+    a = a * (n*n)/(n*n - 0.25)
+print(a)
+</code></pre>
+
+<pre class="bash"><code>git add picalc.py
+git commit -m "Set nmax parameter"
+git push
+</code></pre>
+
+<p>Now take a look at the web interface again, and see your new commit.</p>
 
 <blockquote class="challenge">
   <h2 id="fixing-remote-settings">Fixing Remote Settings</h2>
