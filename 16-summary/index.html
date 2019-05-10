@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2019-05-10 12:48:41 +0100">
+    <meta http-equiv="last-modified" content="2019-05-10 13:19:45 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -213,11 +213,11 @@ create the empty repository on the server first!</p>
 
 <h2 id="adding-and-editing-files">Adding and editing files</h2>
 
-<p>Now, you can add files, and do:
-~~~
-git add filename.txt
-git commit -m “Added a file called filename.txt”
-~~~</p>
+<p>Now, you can add files, and do:</p>
+
+<pre><code>git add filename.txt
+git commit -m "Added a file called filename.txt"
+</code></pre>
 
 <p>A common mistake is to create a new file, and forget to add it to the
 repository. You can always check how things are going with:</p>
@@ -225,24 +225,25 @@ repository. You can always check how things are going with:</p>
 <pre><code>git status
 </code></pre>
 
-<p>If you edit files, you can check the changes with
-~~~
-git diff
-~~~</p>
+<p>If you edit files, you can check the changes with</p>
 
-<p>and then add and commit the changes too:
-~~~
-git add filename.txt
-git commit -m “Edited a file called filename.txt”
-~~~</p>
+<pre><code>git diff
+</code></pre>
+
+<p>and then add and commit the changes too:</p>
+
+<pre><code>git add filename.txt
+git commit -m "Edited a file called filename.txt"
+</code></pre>
 
 <h2 id="checking-what-you-have-done">Checking what you have done</h2>
 
-<p>You might want to look at the history:
-~~~
-git log
-~~~
-Note that there are lots of useful options to git log which you can
+<p>You might want to look at the history:</p>
+
+<pre><code>git log
+</code></pre>
+
+<p>Note that there are lots of useful options to git log which you can
 explore.</p>
 
 <h2 id="working-with-a-remote">Working with a remote</h2>
@@ -250,38 +251,40 @@ explore.</p>
 <p>Once up and running with a remote server, you might collaborate with
 others. In which case, you should probably do this:</p>
 
-<pre><code>git pull origin master
+<pre><code>git pull
 </code></pre>
+
 <p>before doing anything else
-and
-~~~
-git push origin master
-~~~
-when you have finished. A typical session would look like this:
-~~~
-git pull origin master
+and</p>
+
+<pre><code>git push
+</code></pre>
+
+<p>when you have finished. A typical session would look like this:</p>
+
+<pre><code>git pull
 # Edit files
 git add filename.txt
-git commit -m “Edited a file”
-git push origin master
-~~~</p>
+git commit -m "Edited a file"
+git push
+</code></pre>
 
 <h2 id="renaming-deleting-resetting">Renaming, deleting, resetting</h2>
 
 <p>If you need to rename or delete files, try to use <code>git mv</code> and <code>git
 rm</code> instead of <code>mv</code> and <code>rm</code>. It makes it easier for git to follow.</p>
 
-<p>Sometimes, things do get messed up. One useful command is:
-~~~
-git clean -fdx
-~~~</p>
+<p>Sometimes, things do get messed up. One useful command is:</p>
+
+<pre><code>git clean -fdx
+</code></pre>
 
 <p>which essentially cleans out any untracked files in your repository,
-and resets everything to the origin state. It is somewhat similar to:
-~~~
-rm -rf *
+and resets everything to the origin state. It is somewhat similar to:</p>
+
+<pre><code>rm -rf *
 git clone https://git.repository.org/user/repo
-~~~</p>
+</code></pre>
 
 <p>i.e. delete everything locally, and copy again from the server
 (assuming you are using one). With the web interface, it is always
@@ -290,7 +293,6 @@ possible to check the state of the server files before you do this.</p>
 <p>Finally, use the <code>git help</code> command to get help, and you will also
 find tons of advice on git online with google and stackexchange.</p>
 
-
 <blockquote class="keypoints">
   <h2>Key Points</h2>
   <ul>
@@ -298,7 +300,7 @@ find tons of advice on git online with google and stackexchange.</p>
     <li><p>It is hard to remember. Practice makes perfect.</p>
 </li>
     
-    <li><p>Fill out the <a href="http://feedback.training.cam.ac.uk/ucs/form.php">feedback form</a></p>
+    <li><p>Fill out the <a href="http://feedback.training.cam.ac.uk/uis">feedback form</a></p>
 </li>
     
   </ul>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2019-05-10 12:48:41 +0100">
+    <meta http-equiv="last-modified" content="2019-05-10 13:19:45 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -252,7 +252,7 @@ $ git commit -m "Add a comment line"
  create mode 100644 pi.py
 </code></pre>
 
-<p>Then push the change to the <em>Owner’s repository</em> on bitbucket:</p>
+<p>Then push the change to the <em>Owner’s repository</em> on GitHub:</p>
 
 <pre class="bash"><code>$ git push
 </code></pre>
@@ -274,7 +274,7 @@ sensible choice earlier when we were setting up remotes by hand.)</p>
 to refresh your browser.) You should be able to see the new commit made by the
 Collaborator.</p>
 
-<p>To download the Collaborator’s changes from bitbucket, the Owner now enters:</p>
+<p>To download the Collaborator’s changes from GitHub, the Owner now enters:</p>
 
 <pre class="bash"><code>$ git pull
 </code></pre>
@@ -292,7 +292,7 @@ Fast-forward
 </code></pre>
 
 <p>Now the three repositories (Owner’s local, Collaborator’s local, and Owner’s on
-bitbucket) are back in sync.</p>
+GitHub) are back in sync.</p>
 
 <blockquote class="callout">
   <h2 id="a-basic-collaborative-workflow">A Basic Collaborative Workflow</h2>
@@ -305,7 +305,7 @@ changes. The basic collaborative workflow would be:</p>
     <li>update your local repo with <code>git pull</code>,</li>
     <li>make your changes and stage them with <code>git add</code>,</li>
     <li>commit your changes with <code>git commit -m</code>, and</li>
-    <li>upload the changes to bitbucket with <code>git push</code></li>
+    <li>upload the changes to GitHub with <code>git push</code></li>
   </ul>
 
   <p>It is better to make many commits with smaller changes rather than
