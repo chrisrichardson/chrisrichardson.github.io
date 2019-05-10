@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2019-05-10 09:52:54 +0100">
+    <meta http-equiv="last-modified" content="2019-05-10 11:17:00 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -202,45 +202,63 @@ on the web rather than on someone’s laptop.  Most programmers use hosting
 services like <a href="http://github.com">GitHub</a>, <a href="http://bitbucket.org">BitBucket</a> or
 <a href="http://gitlab.com/">GitLab</a> to hold those master copies; we’ll explore the pros and cons of this in the final section of this lesson.</p>
 
-<p>Let’s start by sharing the changes we’ve made to our current project
-with the world. Create an account on
-<a href="https://bitbucket.org">bitbucket.org</a>. Bitbucket have an academic
-programme, which allows you to have unlimited private repositories. If
-you use an <code>.ac.uk</code> email address to sign up, you will automatically
-get this feature.</p>
+<p>Let’s start by creating an account at GitHub. The University of Cambridge recently signed up to “GitHub Education”, which
+gives some additional benefits for staff and students, but we will not be using any of those features.
+Go to <a href="https://github.com">GitHub</a> and create a login, if you don’t have one already. You will need to confirm your email address.
+Once you have an account, you should be able to create a new repository online. Click on the “+” sign in the top right corner.</p>
 
-<p>Log in to Bitbucket, then click on the menu drop-down “Repositories” and
-create a new repository called <code>cocktails</code>:</p>
+<p><img src="../fig/github-new-repo.jpg" alt="Creating a Repository" /></p>
 
-<p><img src="../fig/bitbucket-new-repo.png" alt="Creating a Repository" /></p>
+<p><img src="../fig/git-new-repo-2.jpg" alt="Creating a Repository" /></p>
 
-<p>This effectively does the following on Bitbucket’s servers:</p>
+<p>This effectively does the following on GitHub’s servers:</p>
 
-<pre class="bash"><code>$ mkdir cocktails
-$ cd cocktails
+<pre class="bash"><code>$ mkdir picalc
+$ cd picalc
 $ git init
 </code></pre>
 
-<p>Our local repository still contains our earlier work on <code>margherita.md</code>, but the
+<p>Helpfully, GitHub tells you what to do to start a new repository. The first few lines cover what we have already done.
+You will notice some new commands <code>git remote</code> and <code>git push</code> which we will cover in this section.</p>
+
+<p><img src="../fig/git-new-repo-3.jpg" alt="Creating a Repository" /></p>
+
+<p>Let’s follow some of their suggestions and create some files to put in a new repository. Go back to your home directory and make a new folder:</p>
+
+<pre class="bash"><code>cd ~
+mkdir picalc
+cd picalc
+git init
+nano pi.py
+</code></pre>
+
+<p>In the file, let’s put a simple code to calculate an approximate value for “pi” - NB this is not a serious method, it is very slow!</p>
+
+<pre><code>a = 2.0
+for n in range(1, 10000):
+    a = a * (n*n)/(n*n - 0.25)
+print(a)
+</code></pre>
+
+<p>Try it by running <code>python pi.py</code>. It should print out <code>3.14151411083</code>.
+If you want, you can also create a file called “README” with some text in it e.g. “A simple method to calculate pi.”</p>
+
+<pre><code>git add pi.py README
+git commit -m "Code to calculate pi and a README"
+</code></pre>
+
+<p>Our local repository contains <code>pi.py</code> and <code>README</code>, but the
 remote repository on bitbucket doesn’t contain any files yet.</p>
 
 <p><img src="../fig/git-freshly-made-bitbucket-repo.png" alt="New Repository" /></p>
 
 <p>The next step is to connect the two repositories.  We do this by making the
-bitbucket repository a <a href="../reference/#remote">remote</a> for the local repository.</p>
+GitHub repository a <a href="../reference/#remote">remote</a> for the local repository.</p>
 
-<p>As soon as the repository is created, bitbucket displays a page with a
-URL and some information on how to configure your local repository.</p>
+<p>We will change the authentication from SSH to HTTPS, as it is easier to work with for
+now. Use a pattern like this (replacing vlad with your github username).</p>
 
-<p><img src="../fig/bitbucket-new-repo-empty.png" alt="New Repository" /></p>
-
-<p>We have an existing repository, so click on the “I have an existing
-project” link. It will give you some instructions for linking up your
-repository to the website. However, we will change the
-authentication from SSH to HTTPS, as it is easier to work with for
-now. Use a pattern like this (replacing vlad with your bitbucket username).</p>
-
-<pre class="bash"><code>git remote add origin https://vlad@bitbucket.org/vlad/cocktails.git
+<pre class="bash"><code>git remote add origin https://github.com/vlad/picalc.git
 </code></pre>
 
 <p>Make sure to use the URL for your repository rather than Vlad’s: the only
@@ -255,7 +273,7 @@ following one of the great tutorials from
 <a href="https://help.github.com/articles/generating-ssh-keys">github</a>,
 <a href="https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">Atlassian/BitBucket</a>
 and <a href="https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/">GitLab</a>
-(this one has a screencast).</p>
+(this one has a screencast). If you are feeling keen (or confident) you ca</p>
 </blockquote>
 
 <p>We can check that the command has worked by running <code>git remote -v</code>:</p>
