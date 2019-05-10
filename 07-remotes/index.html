@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2019-05-10 11:17:00 +0100">
+    <meta http-equiv="last-modified" content="2019-05-10 11:41:52 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -209,7 +209,11 @@ Once you have an account, you should be able to create a new repository online. 
 
 <p><img src="../fig/github-new-repo.jpg" alt="Creating a Repository" /></p>
 
-<p><img src="../fig/git-new-repo-2.jpg" alt="Creating a Repository" /></p>
+<p>This time, I’m calling the repository “picalc”, as it will include
+some code to calculate the value of “pi”. Let’s make it a “Private”
+repository for now. The other options can stay as default.</p>
+
+<p><img src="../fig/git-new-repo-2.jpg" alt="Creating a Repository 2" /></p>
 
 <p>This effectively does the following on GitHub’s servers:</p>
 
@@ -221,7 +225,7 @@ $ git init
 <p>Helpfully, GitHub tells you what to do to start a new repository. The first few lines cover what we have already done.
 You will notice some new commands <code>git remote</code> and <code>git push</code> which we will cover in this section.</p>
 
-<p><img src="../fig/git-new-repo-3.jpg" alt="Creating a Repository" /></p>
+<p><img src="../fig/git-new-repo-3.jpg" alt="Creating a Repository 3" /></p>
 
 <p>Let’s follow some of their suggestions and create some files to put in a new repository. Go back to your home directory and make a new folder:</p>
 
@@ -248,17 +252,19 @@ git commit -m "Code to calculate pi and a README"
 </code></pre>
 
 <p>Our local repository contains <code>pi.py</code> and <code>README</code>, but the
-remote repository on bitbucket doesn’t contain any files yet.</p>
+remote repository on GitHub doesn’t contain any files yet.</p>
 
-<p><img src="../fig/git-freshly-made-bitbucket-repo.png" alt="New Repository" /></p>
+<p><img src="../fig/git-freshly-made-repo.png" alt="New Repository" /></p>
 
 <p>The next step is to connect the two repositories.  We do this by making the
 GitHub repository a <a href="../reference/#remote">remote</a> for the local repository.</p>
 
 <p>We will change the authentication from SSH to HTTPS, as it is easier to work with for
-now. Use a pattern like this (replacing vlad with your github username).</p>
+now. Use a pattern like this (replacing vlad with your github
+username) - this should be the same command which GitHub suggests when
+creating the repository.</p>
 
-<pre class="bash"><code>git remote add origin https://github.com/vlad/picalc.git
+<pre class="bash"><code>git remote add origin https://vlad@github.com/vlad/picalc.git
 </code></pre>
 
 <p>Make sure to use the URL for your repository rather than Vlad’s: the only
@@ -267,13 +273,18 @@ difference should be your username instead of <code>vlad</code>.</p>
 <blockquote class="callout">
   <h2 id="https-vs-ssh">HTTPS vs. SSH</h2>
 
-  <p>We use HTTPS here because it does not require additional configuration.  After
-the workshop you may want to set up SSH access, which is a bit more secure, by
-following one of the great tutorials from
+  <p>We use HTTPS here because it does not require additional configuration.
+You may want to set up SSH access, which is a bit more secure, and
+does not require a password every time.
+Follow one of the great tutorials from
 <a href="https://help.github.com/articles/generating-ssh-keys">github</a>,
 <a href="https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">Atlassian/BitBucket</a>
 and <a href="https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/">GitLab</a>
-(this one has a screencast). If you are feeling keen (or confident) you ca</p>
+(this one has a screencast).</p>
+
+  <p>If you are feeling confident, it can be done with the following command: <code>ssh-keygen</code>.
+You then need to upload the file <code>~/.ssh/id_rsa.pub</code> into your “SSH and GPG settings”
+on GitHub.</p>
 </blockquote>
 
 <p>We can check that the command has worked by running <code>git remote -v</code>:</p>
@@ -281,15 +292,15 @@ and <a href="https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/">GitLab
 <pre class="bash"><code>$ git remote -v
 </code></pre>
 
-<pre class="output"><code>origin   https://bitbucket.org/vlad/cocktails.git (push)
-origin   https://bitbucket.org/vlad/cocktails.git (fetch)
+<pre class="output"><code>origin   https://vlad@github.com/vlad/picalc.git (push)
+origin   https://vlad@github.com/vlad/picalc.git (fetch)
 </code></pre>
 
 <p>The name <code>origin</code> is a local nickname for your remote repository: we could use
 something else if we wanted to, but <code>origin</code> is the default.</p>
 
 <p>Once the nickname <code>origin</code> is set up, this command will push the changes from
-our local repository to the repository on bitbucket:</p>
+our local repository to the repository on GitHub:</p>
 
 <pre class="bash"><code>$ git push -u origin master
 </code></pre>
@@ -303,7 +314,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (6/6), done.
 Writing objects: 100% (9/9), 821 bytes, done.
 Total 9 (delta 2), reused 0 (delta 0)
-To https://bitbucket.org/vlad/cocktails
+To https://github.com/vlad/picalc
  * [new branch]      master -&gt; master
 Branch master set up to track remote branch master from origin.
 </code></pre>
@@ -339,26 +350,29 @@ to make git default to using the terminal for usernames and passwords.</p>
 <pre class="bash"><code>$ git pull origin master
 </code></pre>
 
-<pre class="output"><code>From https://bitbucket.org/vlad/cocktails
+<pre class="output"><code>From https://github.com/vlad/picalc
  * branch            master     -&gt; FETCH_HEAD
 Already up-to-date.
 </code></pre>
 
 <p>Pulling has no effect in this case because the two repositories are already
 synchronized.  If someone else had pushed some changes to the repository on
-bitbucket, though, this command would download them to our local repository.</p>
+GitHub, though, this command would download them to our local repository.</p>
 
-<h2 id="bitbucket-gui">bitbucket GUI</h2>
+<h2 id="github-gui">GitHub GUI</h2>
 
-<p>Browse to your <code>cocktails</code> repository on bitbucket.
- * Try clicking on the ‘Source’ button on the left. You can use this to
-   browse all the files in your repository. By using the dropdown menu
-   with the git hash (e.g. d69e7a9) you can choose which version of the
-   file to view.
- * Now look at the ‘Commits’ button. This shows a graphical
-   representation of what you would see with <code>git log</code>. Again the git
-   commit hashes are shown, and if you click on one, it will give you
-   the <code>git diff</code> between the two neighbouring versions.</p>
+<p>Browse to your <code>picalc</code> repository on GitHub.</p>
+
+<ul>
+  <li>Try clicking on the ‘Source’ button on the left. You can use this to
+ browse all the files in your repository. By using the dropdown menu
+ with the git hash (e.g. d69e7a9) you can choose which version of the
+ file to view.</li>
+  <li>Now look at the ‘Commits’ button. This shows a graphical
+representation of what you would see with <code>git log</code>. Again the git
+commit hashes are shown, and if you click on one, it will give you
+the <code>git diff</code> between the two neighbouring versions.</li>
+</ul>
 
 <blockquote class="challenge">
   <h2 id="push-vs-commit">Push vs. Commit</h2>
@@ -374,7 +388,7 @@ How is “git push” different from “git commit”?</p>
 remote URL. This exercise is about how to fix this kind of issue.
 First start by adding a remote with an invalid URL:</p>
 
-  <pre class="bash"><code>git remote add broken https://bitbucket.org/this/url/is/invalid
+  <pre class="bash"><code>git remote add broken https://github.org/this/url/is/invalid
 </code></pre>
 
   <p>Do you get an error when adding the remote? Can you think of a
@@ -389,10 +403,10 @@ done with this exercise.</p>
 </blockquote>
 
 <blockquote class="challenge">
-  <h2 id="bitbucket-readme-file">bitbucket README file</h2>
+  <h2 id="github-readme-file">GitHub README file</h2>
 
   <p>In this section we learned about creating a remote repository on
-bitbucket. The ‘Overview’ tab suggests you create a README.
+GitHub. The ‘Overview’ tab suggests you create a README.
 Try doing that by clicking on the “Create a README” button. What
 effect will this have on your repository?</p>
 </blockquote>
