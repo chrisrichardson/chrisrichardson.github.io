@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2019-05-10 13:28:17 +0100">
+    <meta http-equiv="last-modified" content="2019-05-13 09:57:38 +0100">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -202,14 +202,21 @@
 language, which has become very popular. We’ll start off by writing a
 very basic program.</p>
 
-<p>Let’s create a file called <code>loop.py</code> that contains a simple loop.
+<p>It’s probably worth pointing out here, that <code>git</code> (and revision
+control systems in general) are really only designed for <em>text</em> files,
+since they “track changes” line by line. If you add a binary file
+(e.g. a JPEG photo, or a Word document), it will still record them, but not
+very efficiently, and some features will be unavailable. As a general
+rule, don’t add binary files to a git repository!</p>
+
+<p>Now, let’s create a file called <code>loop.py</code> that contains a simple loop.
 (Python files usually have the <code>.py</code> suffix).
 (We’ll use <code>nano</code> to edit the file;
 you can use whatever editor you like.
 In particular, this does not have to be the <code>core.editor</code> you set
 globally earlier.)</p>
 
-<pre class="bash"><code>$ nano loop.py
+<pre class="bash"><code>$ gedit loop.py
 </code></pre>
 
 <p>Type the following into the <code>loop.py</code> file:</p>
@@ -304,7 +311,7 @@ This permanent copy is called a <a href="../reference/#commit">commit</a>
 <p>We use the <code>-m</code> flag (for “message”)
 to record a short, descriptive, and specific comment that will help us remember later on what we did and why.
 If we just run <code>git commit</code> without the <code>-m</code> option,
-Git will launch <code>nano</code> (or whatever other editor we configured as <code>core.editor</code>)
+Git will launch <code>gedit</code> (or whatever other editor we configured as <code>core.editor</code>)
 so that we can write a longer message.</p>
 
 <p><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Good commit messages</a> start with a brief (&lt;50 characters) summary of
@@ -354,10 +361,10 @@ so that our filesystem doesn’t become cluttered
 </blockquote>
 
 <p>Now suppose I add more information to the file.
-(Again, we’ll edit with <code>nano</code> and then <code>cat</code> the file to show its contents;
+(Again, we’ll edit with <code>gedit</code> and then <code>cat</code> the file to show its contents;
 you may use a different editor, and don’t need to <code>cat</code>.)</p>
 
-<pre class="bash"><code>$ nano loop.py
+<pre class="bash"><code>$ gedit loop.py
 $ cat loop.py
 </code></pre>
 
@@ -498,7 +505,7 @@ and into long-term storage.
 First,
 we’ll add a few more lines to the file:</p>
 
-<pre class="bash"><code>$ nano loop.py
+<pre class="bash"><code>$ gedit loop.py
 $ cat loop.py
 </code></pre>
 
@@ -742,7 +749,7 @@ and commit those changes.</li>
 
     <p>First we make our changes to the <code>loop.py</code> and <code>example.py</code> files:</p>
 
-    <pre class="bash"><code>$ nano loop.py
+    <pre class="bash"><code>$ gedit loop.py
 $ cat loop.py
 </code></pre>
     <pre class="output"><code># Written by Chris
@@ -752,7 +759,7 @@ for i in range(1, 100):
     a = a + i
     print(i, a)
 </code></pre>
-    <pre class="bash"><code>$ nano example.py
+    <pre class="bash"><code>$ gedit example.py
 $ cat example.py
 </code></pre>
     <pre class="output"><code># Written by Chris
